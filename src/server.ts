@@ -1,8 +1,3 @@
-console.log("Executed!");
-import moment from "moment";
+import dotenv from 'dotenv';
+dotenv.config();
 
-const currentTime = moment().format("YYYY MM DD");
-console.log(currentTime);
-
-const person: string = "Martin";
-const count: number = 100;

@@ -1,6 +1,4 @@
 console.log("TRAINING STARTED");
-const moment = require('moment');
-const time = moment().format('HH:mm');
 
 /*                  TASK G:
 Yagona parametrga ega function tuzing.
@@ -11,19 +9,19 @@ MASALAN: getHighestIndex([5, 21, 12, 21 ,8]); return qiladi 1 sonini
 Yuqoridagi misolda, birinchi indeksda 21 joylashgan.
 Va bu 21 soni arrayning tarkibidagi birinchi eng katta son hisobladi va bizga uning indeksi 1 qaytadi.
 */
-arr = [21,44,55,43,2];
 
-getHighestIndex = (arr) => {
+function getHighestIndex (arr: number[]): number {
   let engKatta = arr[0];
   let index = 0;
-    for(ele of arr) {
-      if(arr[ele]>engKatta) {
-        engKatta = arr[ele];
-        index = ele;
+    for(let i=1; i<arr.length; i++) {
+      if(arr[i]>engKatta) {
+        engKatta = arr[i];
+        index = i;
       }
     }
     return index;
 }
+let arr: Array<number> = [93,34,5,24,199];
 
 console.log(getHighestIndex(arr));
 

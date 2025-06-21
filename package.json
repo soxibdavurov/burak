@@ -5,6 +5,7 @@
   "main": "src/server.ts",
   "scripts": {
     "start": "ts-node src/server.ts",
+    "train": "nodemon train.js",
     "start:dev": "node --no-warnings -r ts-node/register src/server.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,22 +1,43 @@
 console.log("TRAINING STARTED");
 
-/*                  TASK H:
+/*                  TASK H-2 
+Shunday function tuzing, unga string argument pass bolsin. 
+Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
+
+MASALAN: getDigits("m14i1t") return qiladi "141"
+*/
+
+function getDigits(arr3: string): string {
+    let numbers: string = "";
+    for(let i=0; i<arr3.length; i++)
+    {
+      if(arr3[i] >= '0' && arr3[i] <= '9') {
+        numbers = numbers.concat(arr3[i]).toString();
+      }
+    }
+    return numbers;
+}
+
+console.log(getDigits("jhdf1kh354j32h7j"));
+
+
+/*                  TASK H-1:
 shunday function tuzing, u integerlardan iborat arrayni argument sifatida qabul qilib, 
 faqat positive qiymatlarni olib string holatda return qilsin
 
 MASALAN: getPositive([1, -4, 2]) return qiladi "12"
 */
-function getPositive (arr2: number[]): string {
-    let positives: string = "";
-    for(let i=0; i<arr2.length; i++) {
-      if(arr2[i]>0) {
-        positives = positives.concat(arr2[i].toString());
-      }
-    }
-    return positives;
-}
+// function getPositive (arr2: number[]): string {
+//     let positives: string = "";
+//     for(let i=0; i<arr2.length; i++) {
+//       if(arr2[i]>0) {
+//         positives = positives.concat(arr2[i].toString());
+//       }
+//     }
+//     return positives;
+// }
 
-console.log(getPositive([32,-34,0,45,3,-4]));
+// console.log(getPositive([32,-34,-4,14,0,45,3,-4]));
 
 
 
@@ -70,6 +91,7 @@ MASALAN: findDoublers("hello"); natija true qaytadi. Sababi ikki marotaba takror
 // console.log(findDoublers("qwertyuiopasd"));
 // console.log(findDoublers("hello"));
 
+
 /*                  TASK E:
 Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
 MASALAN: getReverse("hello") return qilsin "olleh"                   */
@@ -95,7 +117,8 @@ MASALAN: getReverse("hello") return qilsin "olleh"                   */
 
 /*                  TASK D                   */
 
-/* Shunday function tuzing, u 2ta string parametr ega bolsin, hamda agar har ikkala string bir hil 
+/* Shunday function tuzing, u 2ta string parametr ega bolsin, 
+hamda agar har ikkala string bir hil 
 harflardan iborat bolsa true aks holda false qaytarsin
 
 MASALAN checkContent("mitgroup", "gmtiprou") return qiladi true;
@@ -117,7 +140,18 @@ console.log(checkContent("Sohibjon", "nojbihoS")); // true
 
 */
 
-/*                  TASK C                   */
+/*                  TASK C   
+Shunday class tuzing tuzing nomi Shop, 
+va uni constructoriga 3 hil mahsulot pass bolsin, 
+hamda classning 3ta methodi bolsin, biri qoldiq, 
+biri sotish va biri qabul. Har bir method ishga tushgan vaqt ham log qilinsin.
+
+MASALAN: const shop = new Shop(4, 5, 2); 
+shop.qoldiq() return hozir 20:40da 4ta non, 5ta lagmon va 2ta cola mavjud! 
+shop.sotish('non', 3) & 
+shop.qabul('cola', 4) & 
+shop.qoldiq() return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud!
+*/
 
 /* class Shop {
   constructor(non, lagmon, cola) {
@@ -160,7 +194,11 @@ shop.qoldiq();
 */ 
 
 
-/*                  TASK B                   */
+/*                  TASK B            
+Shunday function tuzing, u 1ta string parametrga ega bolsin, 
+hamda o`sha stringda qatnashgan raqamlarni sonini bizga return qilsin.
+MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.
+*/
 
 // let mixWord = "skdfjlsdjf3847289361fdslkhfk2A223454";
 

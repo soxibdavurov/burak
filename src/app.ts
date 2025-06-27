@@ -2,6 +2,8 @@ import express from 'express';
 import path from "path";
 import router from "./router";
 import routerAdmin from "./routerAdmin"
+import morgan from 'morgan';
+import { MORGAN_FORMAT } from './libs/config';
 
 /** I Entrance */
 const app = express();
@@ -9,6 +11,7 @@ console.log("__dirname", __dirname);
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({extended: true})); // Middleware DP -> Traditional API
 app.use(express.json()); //Middleware DP -> RestAPI
+app.use(morgan(MORGAN_FORMAT));
 
 /** II Sessions */
 

@@ -1,5 +1,16 @@
 console.log("TRAINING STARTED");
 
+/* Project Standards: 
+  - Logging standards
+  - Naming standards 
+     function, method, variable => Camel case  goHome
+     class => PASCAL                           MemberService
+     folder => KEBAB
+     css => SNAKE  
+  - Error handling
+*/
+
+
 /*                  TASK H-2 
 Shunday function tuzing, unga string argument pass bolsin. 
 Function ushbu agrumentdagi digitlarni yangi stringda return qilsin

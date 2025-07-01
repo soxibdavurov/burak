@@ -10,6 +10,40 @@ console.log("TRAINING STARTED");
   - Error handling
 */
 
+/* TASK-I:
+
+Shunday function tuzing, u parametrdagi array ichida eng ko'p
+takrorlangan raqamni topib qaytarsin.
+
+MASALAN: majorityElement([1, 2, 3, 4, 5, 4, 3, 4]); return 4
+
+Yuqoridag misolda argument sifatida kiritilayotgan array tarkibida 4 soni ko'p takrorlanganligi uchun 4'ni return qilmoqda.
+
+*/
+
+function majorityElement(arr: number[]): number {
+  const countMap: { [key: number]: number } = {};
+
+  for (let num of arr) {
+    countMap[num] = (countMap[num] || 0) + 1;
+  }
+
+  let maxCount = 0;
+  let majority = arr[0];
+
+  for (let num in countMap) {
+    if (countMap[num] > maxCount) {
+      maxCount = countMap[num];
+      majority = Number(num);
+    }
+  }
+
+  return majority;
+}
+
+// Misol uchun:
+console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4, 3, 3]));
+
 
 /*                  TASK H-2 
 Shunday function tuzing, unga string argument pass bolsin. 
@@ -18,18 +52,18 @@ Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
 MASALAN: getDigits("m14i1t") return qiladi "141"
 */
 
-function getDigits(arr3: string): string {
-    let numbers: string = "";
-    for(let i=0; i<arr3.length; i++)
-    {
-      if(arr3[i] >= '0' && arr3[i] <= '9') {
-        numbers = numbers.concat(arr3[i]).toString();
-      }
-    }
-    return numbers;
-}
+// function getDigits(arr3: string): string {
+//     let numbers: string = "";
+//     for(let i=0; i<arr3.length; i++)
+//     {
+//       if(arr3[i] >= '0' && arr3[i] <= '9') {
+//         numbers = numbers.concat(arr3[i]).toString();
+//       }
+//     }
+//     return numbers;
+// }
 
-console.log(getDigits("jhdf1kh354j32h7j"));
+// console.log(getDigits("jhdf1kh354j32h7j"));
 
 
 /*                  TASK H-1:

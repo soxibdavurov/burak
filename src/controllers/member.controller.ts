@@ -12,7 +12,7 @@ const memberService  = new MemberService();
 const memberController: T= {};
 
 
-// TODO TOKENS
+// TODO TOKENS AUTHENTICATION
 memberController.signup = async (req: Request, res: Response) => {
     try {
         console.log('signup');
@@ -30,7 +30,7 @@ memberController.signup = async (req: Request, res: Response) => {
 
 
 
-// TODO TOKENS
+// TODO TOKENS AUTHENTICATION
 memberController.login = async (req: Request, res: Response) => {
     try {
         console.log('login');

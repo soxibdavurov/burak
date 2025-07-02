@@ -10,6 +10,21 @@ console.log("TRAINING STARTED");
   - Error handling
 */
 
+/* 
+Traditional API
+Rest API
+GraphQL API
+
+
+Traditional Frontend Development => BSSR => EJS (Admin)
+
+Modern FD => SPA => REACT (Users)
+*/
+
+/* 
+TASK-J
+*/
+
 /* TASK-I:
 
 Shunday function tuzing, u parametrdagi array ichida eng ko'p
@@ -21,28 +36,27 @@ Yuqoridag misolda argument sifatida kiritilayotgan array tarkibida 4 soni ko'p t
 
 */
 
-function majorityElement(arr: number[]): number {
-  const countMap: { [key: number]: number } = {};
+// function majorityElement(arr: number[]): number {
+//   const countMap: { [key: number]: number } = {};
 
-  for (let num of arr) {
-    countMap[num] = (countMap[num] || 0) + 1;
-  }
+//   for (let num of arr) {
+//     countMap[num] = (countMap[num] || 0) + 1;
+//   }
 
-  let maxCount = 0;
-  let majority = arr[0];
+//   let maxCount = 0;
+//   let majority = arr[0];
 
-  for (let num in countMap) {
-    if (countMap[num] > maxCount) {
-      maxCount = countMap[num];
-      majority = Number(num);
-    }
-  }
+//   for (let num in countMap) {
+//     if (countMap[num] > maxCount) {
+//       maxCount = countMap[num];
+//       majority = Number(num);
+//     }
+//   }
 
-  return majority;
-}
+//   return majority;
+// }
 
-// Misol uchun:
-console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4, 3, 3]));
+// console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4, 3, 3]));
 
 
 /*                  TASK H-2 

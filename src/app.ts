@@ -21,7 +21,7 @@ app.set("view engine", "ejs");
 
 /** IV Routers */
 // BSSR: Backendda frontendni qurib olish
-app.use("/admin", routerAdmin);  // Middleware Design Pattern EJS
-app.use("/", router);  // Middleware Design Pattern: React
+app.use("/admin", routerAdmin);  // Middleware Design Pattern EJS  SSR
+app.use("/", router);  // Middleware Design Pattern: React  Frontend
 
 export default app; //module.exports

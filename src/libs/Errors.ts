@@ -23,6 +23,11 @@ export enum Message {
 class Errors extends Error {
     public code: HttpCode;
     public message: Message;
+
+    static standard = {
+        code: HttpCode.INTERNAL_SERVER_ERROR,
+        message: Message.SMT_WENT_WR,
+    };
     
     constructor(statusCode: HttpCode, statusMessage: Message) {
         super();

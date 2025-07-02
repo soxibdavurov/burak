@@ -34,12 +34,20 @@ eng uzun so'z bo'lganligi uchun 'Uzbekistan'ni qaytarmoqda
 
 */
 
-function findLongestWord(arr: string): string {
-  return arr;
-  arr.toString
+function findLongestWord(text: string): string {
+  let longest = "";
+  const words = text.split(" ");
+  
+  for(const word of words) {
+      if(word.length>longest.length) {
+        longest = word;
+      } 
+  }
+
+  return longest;
 }
 
-console.log(findLongestWord('hahaha'));
+console.log(findLongestWord(`Mening yurtim O'zbekiston`));
 
 
 /* TASK-I:

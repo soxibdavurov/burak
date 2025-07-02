@@ -23,7 +23,24 @@ Modern FD => SPA => REACT (Users)
 
 /* 
 TASK-J
+
+Shunday function tuzing, u string qabul qilsin.
+Va string ichidagi eng uzun so'zni qaytarsin.
+
+MASALAN: findLongestWord("I came from Uzbekistan!"); return "Uzbekistan!"
+
+Yuqoridagi text tarkibida 'Uzbekistan'
+eng uzun so'z bo'lganligi uchun 'Uzbekistan'ni qaytarmoqda
+
 */
+
+function findLongestWord(arr: string): string {
+  return arr;
+  arr.toString
+}
+
+console.log(findLongestWord('hahaha'));
+
 
 /* TASK-I:
 

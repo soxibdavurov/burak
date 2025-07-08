@@ -22,6 +22,11 @@ Modern FD => SPA => REACT (Users)
 */
 
 /* 
+request join
+self destroy
+*/
+
+/* 
 TASK-J
 
 Shunday function tuzing, u string qabul qilsin.

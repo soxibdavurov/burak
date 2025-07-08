@@ -26,6 +26,26 @@ request join
 self destroy
 */
 
+/* TASK K: 
+
+Shunday function yozing, u string qabul qilsin va 
+string ichidagi unli harflar sonini qaytarsin.
+MASALAN: countVowels("string") return 1;
+
+*/
+
+function countVowels(word: string): number {
+  let vowels = 0;
+  let unlilar = ['a','e','i','o','u'];
+
+  for(let i of word) {
+    if(unlilar.includes(i))
+      vowels++;
+    } 
+  return vowels;
+}
+
+console.log(countVowels('pomidor'));
 /* 
 TASK-J
 

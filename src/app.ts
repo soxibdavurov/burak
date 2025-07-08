@@ -8,7 +8,7 @@ import { MORGAN_FORMAT } from './libs/config';
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
 
-const MongoDBStore =ConnectMongoDB(session);
+const MongoDBStore = ConnectMongoDB(session);
 const store = new MongoDBStore({
 uri: String(process.env.MONGO_URL),
 collection: "sessions",
@@ -30,7 +30,7 @@ app.use(
         maxAge: 1000 * 3600 * 3 // 3h
   },
   store: store,
-  resave: true, // 10:30 auth => 13:30 12:00 => 15:00
+  resave: true, // 10:30 auth => 13:30 | 12:00 => 15:00
   saveUninitialized: true   
     })
 );

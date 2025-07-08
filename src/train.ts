@@ -10,14 +10,14 @@ console.log("TRAINING STARTED");
   - Error handling
 */
 
-/* 
+/*  Request:
 Traditional API
 Rest API
 GraphQL API
 
 
+Frontend development:
 Traditional Frontend Development => BSSR => EJS (Admin)
-
 Modern FD => SPA => REACT (Users)
 */
 
@@ -25,6 +25,13 @@ Modern FD => SPA => REACT (Users)
 request join
 self destroy
 */
+
+/* Validation:
+Frontend
+Backend
+Pipe validation
+Database
+ */
 
 /* TASK K: 
 
@@ -59,20 +66,20 @@ eng uzun so'z bo'lganligi uchun 'Uzbekistan'ni qaytarmoqda
 
 */
 
-function findLongestWord(text: string): string {
-  let longest = "";
-  const words = text.split(" ");
+// function findLongestWord(text: string): string {
+//   let longest = "";
+//   const words = text.split(" ");
   
-  for(const word of words) {
-      if(word.length>longest.length) {
-        longest = word;
-      } 
-  }
+//   for(const word of words) {
+//       if(word.length>longest.length) {
+//         longest = word;
+//       } 
+//   }
 
-  return longest;
-}
+//   return longest;
+// }
 
-console.log(findLongestWord(`Mening yurtim O'zbekiston`));
+// console.log(findLongestWord(`Mening yurtim O'zbekiston`));
 
 
 /* TASK-I:

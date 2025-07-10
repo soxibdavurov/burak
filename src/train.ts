@@ -33,6 +33,33 @@ Pipe validation
 Database
  */
 
+/* 
+TASK L: 
+
+Shunday function yozing, u string qabul 
+qilsin va string ichidagi hamma sozlarni 
+chappasiga yozib va sozlar ketma-ketligini 
+buzmasdan stringni qaytarsin.
+MASALAN: reverseSentence("we like coding!") 
+return "ew ekil gnidoc";
+*/
+
+function reverseSentence(sentence: string): string {
+ const arr: string[] = sentence.split(" ");
+ const reversedWords: string[] = arr.map((word: string) =>
+  word.split("").reverse().join("")
+);
+
+const result: string = reversedWords.join(" ");
+  return   result;
+
+
+}
+
+console.log(reverseSentence("We love coding"));
+
+
+
 /* TASK K: 
 
 Shunday function yozing, u string qabul qilsin va 
@@ -41,18 +68,18 @@ MASALAN: countVowels("string") return 1;
 
 */
 
-function countVowels(word: string): number {
-  let vowels = 0;
-  let unlilar = ['a','e','i','o','u'];
+// function countVowels(word: string): number {
+//   let vowels = 0;
+//   let unlilar = ['a','e','i','o','u'];
 
-  for(let i of word) {
-    if(unlilar.includes(i))
-      vowels++;
-    } 
-  return vowels;
-}
+//   for(let i of word) {
+//     if(unlilar.includes(i))
+//       vowels++;
+//     } 
+//   return vowels;
+// }
 
-console.log(countVowels('pomidor'));
+// console.log(countVowels('pomidor'));
 /* 
 TASK-J
 

@@ -1,6 +1,7 @@
-import { Product, ProductInput } from "../libs/types/product";
+import { Product, ProductInput, ProductUpdateInput } from "../libs/types/product";
 import Errors, {HttpCode, Message} from "../libs/Errors";
 import ProductModel from "../schema/Product.model";
+import { shapeIntoMongooseObjectId } from "../libs/config";
 
 class ProductService {
     private readonly productModel;
@@ -24,6 +25,20 @@ class ProductService {
     }
 
 
+    public async updateChosenProduct(
+        id: string,
+        input: ProductUpdateInput
+    ): Promise<Product> {
+        id = shapeIntoMongooseObjectId(id);
+        const result = await this.productModel.findByIdAndUpdate({_id:id}, input, 
+            {new: true})
+        .exec();
+        if(!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UP_FAIL);
+
+        console.log(result);
+        return result;
+    }
+
 }
 
-export default ProductModel;
+export default ProductService;

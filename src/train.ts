@@ -33,6 +33,44 @@ Pipe validation
 Database
  */
 
+
+/** 
+ * TASK M: 
+
+Shunday function yozing, u raqamlardan tashkil topgan array 
+qabul qilsin va array ichidagi har bir raqam uchun raqamni 
+ozi va hamda osha raqamni kvadratidan tashkil topgan 
+object hosil qilib, hosil bolgan objectlarni array ichida qaytarsin.
+MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, 
+{number: 2, square: 4}, {number: 3, square: 9}];
+ */
+
+function getSquareNumber(nums: number[]): { number: number; square: number }[] {
+  let arr: { number: number; square: number }[] = [];
+
+  for (let i = 0; i < nums.length; i++) {
+    arr.push({
+      number: nums[i],
+      square: nums[i] * nums[i]
+    });
+  }
+
+  return arr;
+}
+
+
+/* 2-usul */
+function getSquareNumber2(nums: number[]) {
+  return nums.map(num => ({
+    number: num,
+    square: num * num
+  }));
+}
+
+    console.log(getSquareNumber([1,2,3]));
+    console.log(getSquareNumber2([4,5,6]));
+
+
 /* 
 TASK L: 
 
@@ -44,19 +82,19 @@ MASALAN: reverseSentence("we like coding!")
 return "ew ekil gnidoc";
 */
 
-function reverseSentence(sentence: string): string {
- const arr: string[] = sentence.split(" ");
- const reversedWords: string[] = arr.map((word: string) =>
-  word.split("").reverse().join("")
-);
+// function reverseSentence(sentence: string): string {
+//  const arr: string[] = sentence.split(" ");
+//  const reversedWords: string[] = arr.map((word: string) =>
+//   word.split("").reverse().join("")
+// );
 
-const result: string = reversedWords.join(" ");
-  return   result;
+// const result: string = reversedWords.join(" ");
+//   return   result;
 
 
-}
+// }
 
-console.log(reverseSentence("We love coding"));
+// console.log(reverseSentence("We love coding"));
 
 
 

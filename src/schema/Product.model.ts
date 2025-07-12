@@ -30,19 +30,18 @@ productLeftCount:{
 
 productSize:{
     type: String,
-    enum: ProductSize
+    enum: ProductSize,
+    default: ProductSize.NORMAL,
 },
 
 productVolume:{
-    type: String,
+    type: Number,
     enum: ProductVolume,
-    default: ProductSize.NORMAL
+    default: ProductVolume.ONE,
 },
 
 productDesc:{
     type: String,
-    enum: ProductVolume,
-    default: ProductVolume.ONE
 },
 
 productImages: {

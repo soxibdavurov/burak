@@ -33,6 +33,27 @@ Pipe validation
 Database
  */
 
+/** 
+ TASK N:
+
+Shunday function yozing, u string qabul qilsin va string palindrom
+yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan 
+soz ekanligini aniqlab boolean qiymat qaytarsin.
+MASALAN: palindromCheck("dad") return true;  
+palindromCheck("son") return false;
+ * 
+ */
+
+function palindromCheck(word: string): boolean {
+  const reversedW = word.split('').reverse().join('');
+  if(word===reversedW) return true; else return false;
+}
+
+console.log(palindromCheck("Sohibjon"));
+console.log(palindromCheck("dad"));
+console.log(palindromCheck("non"));
+console.log(palindromCheck("kiyik"));
+console.log(palindromCheck("tut"));
 
 /** 
  * TASK M: 
@@ -45,30 +66,30 @@ MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1},
 {number: 2, square: 4}, {number: 3, square: 9}];
  */
 
-function getSquareNumber(nums: number[]): { number: number; square: number }[] {
-  let arr: { number: number; square: number }[] = [];
+// function getSquareNumber(nums: number[]): { number: number; square: number }[] {
+//   let arr: { number: number; square: number }[] = [];
 
-  for (let i = 0; i < nums.length; i++) {
-    arr.push({
-      number: nums[i],
-      square: nums[i] * nums[i]
-    });
-  }
+//   for (let i = 0; i < nums.length; i++) {
+//     arr.push({
+//       number: nums[i],
+//       square: nums[i] * nums[i]
+//     });
+//   }
 
-  return arr;
-}
+//   return arr;
+// }
 
 
-/* 2-usul */
-function getSquareNumber2(nums: number[]) {
-  return nums.map(num => ({
-    number: num,
-    square: num * num
-  }));
-}
+// /* 2-usul */
+// function getSquareNumber2(nums: number[]) {
+//   return nums.map(num => ({
+//     number: num,
+//     square: num * num
+//   }));
+// }
 
-    console.log(getSquareNumber([1,2,3]));
-    console.log(getSquareNumber2([4,5,6]));
+//     console.log(getSquareNumber([1,2,3]));
+//     console.log(getSquareNumber2([4,5,6]));
 
 
 /* 

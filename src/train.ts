@@ -34,6 +34,32 @@ Database
  */
 
 /** 
+ TASK O:
+
+Shunday function yozing va u har xil qiymatlardan iborat array qabul qilsin.
+Va array ichidagi sonlar yig'indisini hisoblab chiqgan javobni qaytarsin
+
+MASALAN: calculateSumOfNumbers([10, "10", {son: 10}, true, 35]); return 45
+
+Yuqoridagi misolda array tarkibida faqatgina ikkita yagona son mavjud bular 10 hamda 35
+Qolganlari nested bo'lib yoki type'lari number emas.
+ */
+
+function calculateSumOfNumbers(arr: any[]): number {
+  let yigindi = 0;
+
+  for (const item of arr) {
+    if (typeof item === 'number') {
+      yigindi += item;
+    }
+  }
+
+  return yigindi;
+}
+
+console.log("Yig'indi: ", calculateSumOfNumbers([43,3,"3434","hehe",true,null,"3",4]));
+
+/** 
  TASK N:
 
 Shunday function yozing, u string qabul qilsin va string palindrom
@@ -44,16 +70,16 @@ palindromCheck("son") return false;
  * 
  */
 
-function palindromCheck(word: string): boolean {
-  const reversedW = word.split('').reverse().join('');
-  if(word===reversedW) return true; else return false;
-}
+// function palindromCheck(word: string): boolean {
+//   const reversedW = word.split('').reverse().join('');
+//   if(word===reversedW) return true; else return false;
+// }
 
-console.log(palindromCheck("Sohibjon"));
-console.log(palindromCheck("dad"));
-console.log(palindromCheck("non"));
-console.log(palindromCheck("kiyik"));
-console.log(palindromCheck("tut"));
+// console.log(palindromCheck("Sohibjon"));
+// console.log(palindromCheck("dad"));
+// console.log(palindromCheck("non"));
+// console.log(palindromCheck("kiyik"));
+// console.log(palindromCheck("tut"));
 
 /** 
  * TASK M: 

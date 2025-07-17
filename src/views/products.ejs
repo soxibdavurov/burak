@@ -74,9 +74,12 @@
             <button class="btn btn-primary" id="process-btn">
               New Product
             </button>
+            
+            <button class="btn btn-danger" style="display: none;" id="cancel-btn">Cancel new product</button>
           </div>
         </div>
         <form
+          onsubmit="return validateForm()"
           action="/admin/product/create"
           method="POST"
           class="dish-container"
@@ -171,6 +174,7 @@
                   name="productImages"
                   class="image-one"
                   required
+                  onchange="previewFileHandler(this,1)"
                 />
               </div>
               <div class="upload-img-box">
@@ -179,7 +183,9 @@
                   type="file"
                   id="file"
                   name="productImages"
-                  class="image-two"
+                  class="image-two"                  
+                  onchange="previewFileHandler(this,2)"
+
                 />
               </div>
               <div class="upload-img-box">
@@ -188,7 +194,8 @@
                   type="file"
                   id="file"
                   name="productImages"
-                  class="image-three"
+                  class="image-three"                  
+                  onchange="previewFileHandler(this,3)"
                 />
               </div>
               <div class="upload-img-box">
@@ -197,7 +204,8 @@
                   type="file"
                   id="file"
                   name="productImages"
-                  class="image-four"
+                  class="image-four"                  
+                  onchange="previewFileHandler(this,4)"
                 />
               </div>
               <div class="upload-img-box">
@@ -206,7 +214,8 @@
                   type="file"
                   id="file"
                   name="productImages"
-                  class="image-five"
+                  class="image-five"                  
+                  onchange="previewFileHandler(this,5)"
                 />
               </div>
               <input name="restaurantIid" class="restaurant-id" hidden />
@@ -214,7 +223,6 @@
           </div>
 
           <div class="operation-buttons">
-            <button class="btn btn-danger" id="cancel-btn">Cancel</button>
             <button type="submit" class="btn btn-primary" id="create-btn">
               Create
             </button>

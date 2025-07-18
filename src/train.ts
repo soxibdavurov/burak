@@ -34,6 +34,26 @@ Database
  */
 
 /** 
+ TASK P:
+
+Parametr sifatida yagona object qabul qiladigan 
+function yozing.
+Qabul qilingan objectni nested array 
+sifatida convert qilib qaytarsin
+
+MASALAN: 
+objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
+ */
+
+function objectToArray(obj: { [key: string]: any }): [string, any][] {
+  return Object.entries(obj);
+}
+
+console.log(objectToArray({ a: 10, b: 20 }));
+// Natija: [['a', 10], ['b', 20]]
+
+
+/** 
  TASK O:
 
 Shunday function yozing va u har xil qiymatlardan iborat array qabul qilsin.
@@ -45,19 +65,19 @@ Yuqoridagi misolda array tarkibida faqatgina ikkita yagona son mavjud bular 10 h
 Qolganlari nested bo'lib yoki type'lari number emas.
  */
 
-function calculateSumOfNumbers(arr: any[]): number {
-  let yigindi = 0;
+// function calculateSumOfNumbers(arr: any[]): number {
+//   let yigindi = 0;
 
-  for (const item of arr) {
-    if (typeof item === 'number') {
-      yigindi += item;
-    }
-  }
+//   for (const item of arr) {
+//     if (typeof item === 'number') {
+//       yigindi += item;
+//     }
+//   }
 
-  return yigindi;
-}
+//   return yigindi;
+// }
 
-console.log("Yig'indi: ", calculateSumOfNumbers([43,3,"3434","hehe",true,null,"3",4]));
+// console.log("Yig'indi: ", calculateSumOfNumbers([43,3,"3434","hehe",true,null,"3",4]));
 
 /** 
  TASK N:

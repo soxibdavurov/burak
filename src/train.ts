@@ -33,6 +33,43 @@ Pipe validation
 Database
  */
 
+/**           TASK R
+ Shunday function yozing, u string parametrga ega bo'lsin.
+Agar argument sifatida berilayotgan string, "1 + 2" bo'lsa,
+string ichidagi sonlarin yig'indisni hisoblab, number holatida qaytarsin
+
+MASALAN: calculate("1 + 3"); return 4;
+1 + 3 = 4, shu sababli 4 natijani qaytarmoqda.
+ */
+
+function calculate(expression: string): number {
+  const parts = expression.split('+');
+  const n1 = parseInt(parts[0].trim());
+  const n2 = parseInt(parts[1].trim());
+  return n1 + n2;
+}
+
+
+/* 2-usul */
+function calculate2(expression: string): number {
+  try {
+    // evaluate qilish uchun yangi Function foydalanamiz (JS eval o‘rniga xavfsizroq)
+    return new Function(`return ${expression}`)();
+  } catch (err) {
+    throw new Error("Invalid expression");
+  }
+}
+
+
+console.log(calculate("1 + 3"));
+
+console.log(calculate2("1 + 3"));
+console.log(calculate2("2 + 5 - 3"));
+console.log(calculate2("4 * 2 + 1"));
+console.log(calculate2("10 / 2 + 3"));
+console.log(calculate2("5 + 3 * 2"));   
+
+
 /* 
 TASK Q:
 
@@ -49,12 +86,12 @@ Ushbu misolda, ikkinchi argument sifatida berilayotgan 'year' objectning
 propertysida mavjud bo'lmaganligi uchun 'false' natijani qaytarmoqda.
 */
 
-function hasProperty(obj: object, key: string): boolean {
-  return key in obj;
-}
+// function hasProperty(obj: object, key: string): boolean {
+//   return key in obj;
+// }
 
-console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); 
-console.log(hasProperty({ name: "BMW", model: "M3" }, "year")); 
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); 
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "year")); 
 
 /** 
  TASK P:

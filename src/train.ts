@@ -33,6 +33,26 @@ Pipe validation
 Database
  */
 
+/* 
+TASK-S:
+
+Shunday function yozing, u numberlardan tashkil topgan
+ array qabul qilsin va osha numberlar orasidagi tushib
+  qolgan sonni topib uni return qilsin
+MASALAN: missingNumber([3, 0, 1]) return 2
+*/
+
+function missingNumber(nums: number[]): number {
+  const n = nums.length;
+  const expectedSum = (n * (n + 1)) / 2;
+  const actualSum = nums.reduce((sum, num) => sum + num, 0);
+  return expectedSum - actualSum;
+}
+
+console.log(missingNumber([3, 0, 1])); 
+console.log(missingNumber([0, 1]));    
+console.log(missingNumber([8,6,4,2,3,5,7,0,1]));
+
 /**           TASK R
  Shunday function yozing, u string parametrga ega bo'lsin.
 Agar argument sifatida berilayotgan string, "1 + 2" bo'lsa,
@@ -42,32 +62,32 @@ MASALAN: calculate("1 + 3"); return 4;
 1 + 3 = 4, shu sababli 4 natijani qaytarmoqda.
  */
 
-function calculate(expression: string): number {
-  const parts = expression.split('+');
-  const n1 = parseInt(parts[0].trim());
-  const n2 = parseInt(parts[1].trim());
-  return n1 + n2;
-}
+// function calculate(expression: string): number {
+//   const parts = expression.split('+');
+//   const n1 = parseInt(parts[0].trim());
+//   const n2 = parseInt(parts[1].trim());
+//   return n1 + n2;
+// }
 
 
-/* 2-usul */
-function calculate2(expression: string): number {
-  try {
-    // evaluate qilish uchun yangi Function foydalanamiz (JS eval o‘rniga xavfsizroq)
-    return new Function(`return ${expression}`)();
-  } catch (err) {
-    throw new Error("Invalid expression");
-  }
-}
+// /* 2-usul */
+// function calculate2(expression: string): number {
+//   try {
+//     // evaluate qilish uchun yangi Function foydalanamiz (JS eval o‘rniga xavfsizroq)
+//     return new Function(`return ${expression}`)();
+//   } catch (err) {
+//     throw new Error("Invalid expression");
+//   }
+// }
 
 
-console.log(calculate("1 + 3"));
+// console.log(calculate("1 + 3"));
 
-console.log(calculate2("1 + 3"));
-console.log(calculate2("2 + 5 - 3"));
-console.log(calculate2("4 * 2 + 1"));
-console.log(calculate2("10 / 2 + 3"));
-console.log(calculate2("5 + 3 * 2"));   
+// console.log(calculate2("1 + 3"));
+// console.log(calculate2("2 + 5 - 3"));
+// console.log(calculate2("4 * 2 + 1"));
+// console.log(calculate2("10 / 2 + 3"));
+// console.log(calculate2("5 + 3 * 2"));   
 
 
 /* 

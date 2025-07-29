@@ -33,7 +33,48 @@ Pipe validation
 Database
  */
 
+/* TASK T
+
+Shunday function tuzing, u sonlardan tashkil topgan 2'ta array qabul qilsin.
+Va ikkala arraydagi sonlarni tartiblab bir arrayda qaytarsin.
+
+MASALAN: mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]); return [0, 3, 4, 4, 6, 30, 31];
+
+Yuqoridagi misolda, ikkala arrayni birlashtirib, tartib raqam bo'yicha tartiblab qaytarmoqda.
+
+1-usul
+*/
+
+function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+  return [...arr1, ...arr2].sort((a, b) => a - b);
+}
+
+console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+
+/* 2-usul */
+
+function mergeSortedArrays2(arr1: number[], arr2: number[]): number[] {
+  const merged: number[] = [];
+  let i = 0, j = 0;
+
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] < arr2[j]) {
+      merged.push(arr1[i]);
+      i++;
+    } else {
+      merged.push(arr2[j]);
+      j++;
+    }
+  }
+
+  // Qolgan elementlarni qo‘shish
+  return merged.concat(arr1.slice(i)).concat(arr2.slice(j));
+}
+
+console.log(mergeSortedArrays2([0, 3, 4, 31], [4, 6, 30]));
 /* 
+
+
 TASK-S:
 
 Shunday function yozing, u numberlardan tashkil topgan

@@ -33,6 +33,32 @@ Pipe validation
 Database
  */
 
+
+/* TASK U
+
+Shunday function tuzing, uni number parametri bo'lsin.
+Va bu function berilgan parametrgacha, 0'dan boshlab
+oraliqda nechta toq sonlar borligini aniqlab return qilsi.
+
+MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
+
+Yuqoridagi birinchi misolda, argument sifatida, 9 berilmoqda.
+Va 0'dan boshlab sanaganda 9'gacha 4'ta toq son mavjud. 
+Keyingi namunada ham xuddi shunday xolat takrorlanmoqda.
+
+*/
+
+function sumOdds(n: number): number {
+  let count = 0;
+  for (let i = 1; i < n; i += 2) {
+    count++;
+  }
+  return count;
+}
+
+console.log(sumOdds(9)) 
+console.log(sumOdds(111))
+
 /* TASK T
 
 Shunday function tuzing, u sonlardan tashkil topgan 2'ta array qabul qilsin.
@@ -45,33 +71,33 @@ Yuqoridagi misolda, ikkala arrayni birlashtirib, tartib raqam bo'yicha tartiblab
 1-usul
 */
 
-function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
-  return [...arr1, ...arr2].sort((a, b) => a - b);
-}
+// function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+//   return [...arr1, ...arr2].sort((a, b) => a - b);
+// }
 
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+// console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
 
-/* 2-usul */
+// /* 2-usul */
 
-function mergeSortedArrays2(arr1: number[], arr2: number[]): number[] {
-  const merged: number[] = [];
-  let i = 0, j = 0;
+// function mergeSortedArrays2(arr1: number[], arr2: number[]): number[] {
+//   const merged: number[] = [];
+//   let i = 0, j = 0;
 
-  while (i < arr1.length && j < arr2.length) {
-    if (arr1[i] < arr2[j]) {
-      merged.push(arr1[i]);
-      i++;
-    } else {
-      merged.push(arr2[j]);
-      j++;
-    }
-  }
+//   while (i < arr1.length && j < arr2.length) {
+//     if (arr1[i] < arr2[j]) {
+//       merged.push(arr1[i]);
+//       i++;
+//     } else {
+//       merged.push(arr2[j]);
+//       j++;
+//     }
+//   }
 
-  // Qolgan elementlarni qo‘shish
-  return merged.concat(arr1.slice(i)).concat(arr2.slice(j));
-}
+//   // Qolgan elementlarni qo‘shish
+//   return merged.concat(arr1.slice(i)).concat(arr2.slice(j));
+// }
 
-console.log(mergeSortedArrays2([0, 3, 4, 31], [4, 6, 30]));
+// console.log(mergeSortedArrays2([0, 3, 4, 31], [4, 6, 30]));
 /* 
 
 
@@ -83,16 +109,16 @@ Shunday function yozing, u numberlardan tashkil topgan
 MASALAN: missingNumber([3, 0, 1]) return 2
 */
 
-function missingNumber(nums: number[]): number {
-  const n = nums.length;
-  const expectedSum = (n * (n + 1)) / 2;
-  const actualSum = nums.reduce((sum, num) => sum + num, 0);
-  return expectedSum - actualSum;
-}
+// function missingNumber(nums: number[]): number {
+//   const n = nums.length;
+//   const expectedSum = (n * (n + 1)) / 2;
+//   const actualSum = nums.reduce((sum, num) => sum + num, 0);
+//   return expectedSum - actualSum;
+// }
 
-console.log(missingNumber([3, 0, 1])); 
-console.log(missingNumber([0, 1]));    
-console.log(missingNumber([8,6,4,2,3,5,7,0,1]));
+// console.log(missingNumber([3, 0, 1])); 
+// console.log(missingNumber([0, 1]));    
+// console.log(missingNumber([8,6,4,2,3,5,7,0,1]));
 
 /**           TASK R
  Shunday function yozing, u string parametrga ega bo'lsin.

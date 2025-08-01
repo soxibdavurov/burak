@@ -33,6 +33,36 @@ Pipe validation
 Database
  */
 
+/* TASK V
+
+Shunday function yozing, uni string parametri bo'lsin.
+Va bu function stringdagi har bir harfni o'zi bilan
+necha marotaba taktorlanganligini ko'rsatuvchi object qaytarsin.
+  
+MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
+
+Yuqoridagi misolda, 'hello' so'zi tarkibida
+qatnashgan harflar necha marotaba takrorlangini bilan
+object sifatida qaytarilmoqda.
+
+*/
+
+function countChars(str: string): Record<string, number> {
+  const result: Record<string, number> = {};
+
+  for (const char of str) {
+    if (result[char]) {
+      result[char]++;
+    } else {
+      result[char] = 1;
+    }
+  }
+
+  return result;
+}
+
+console.log(countChars("hello"));
+
 
 /* TASK U
 
@@ -48,16 +78,16 @@ Keyingi namunada ham xuddi shunday xolat takrorlanmoqda.
 
 */
 
-function sumOdds(n: number): number {
-  let count = 0;
-  for (let i = 1; i < n; i += 2) {
-    count++;
-  }
-  return count;
-}
+// function sumOdds(n: number): number {
+//   let count = 0;
+//   for (let i = 1; i < n; i += 2) {
+//     count++;
+//   }
+//   return count;
+// }
 
-console.log(sumOdds(9)) 
-console.log(sumOdds(111))
+// console.log(sumOdds(9)) 
+// console.log(sumOdds(111))
 
 /* TASK T
 

@@ -4,7 +4,7 @@ import router from "./router";
 import routerAdmin from "./router-admin"
 import morgan from 'morgan';
 import { MORGAN_FORMAT } from './libs/config';
-
+import cookieParser from "cookie-parser";
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
 import { T } from './libs/types/common';
@@ -21,6 +21,7 @@ console.log("__dirname", __dirname);
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({extended: true})); // Middleware DP -> Traditional API
 app.use(express.json()); //Middleware DP -> RestAPI
+app.use(cookieParser());
 app.use(morgan(MORGAN_FORMAT));
 
 /** II Sessions */

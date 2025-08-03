@@ -19,7 +19,8 @@ export enum Message {
     NO_MEMBER_NICK = "No member found",
     BLOCKED_USER = "You have been blocked, contact restaurant!",
     WRONG_PASSWORD = "Wrong password, please try again.",
-    NOT_AUTHENTICATED = "You are not authenticated, please login first."
+    NOT_AUTHENTICATED = "You are not authenticated, please login first.",
+    TOKEN_CREATION_FAILED = "Token create failed!"
 }
 
 class Errors extends Error {

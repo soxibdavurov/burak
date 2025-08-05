@@ -56,6 +56,16 @@ return await this.memberModel.findById(member._id).lean().exec();
 
 }
 
+public async getMemberDetail(member: Member): Promise<Member> {
+   const memberId = shapeIntoMongooseObjectId(member._id);
+   const result = await this.memberModel
+   .findOne({_id:memberId, memberStatus: MemberStatus.ACTIVE})
+   .exec();
+   if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.N_D_F);
+
+   return result;
+
+}
 
     /* SSR */
     

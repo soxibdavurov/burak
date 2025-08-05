@@ -9,7 +9,10 @@ router.post(
     memberController.verifyAuth,
     memberController.logout);
 router.post("/member/signup", memberController.signup);
-router.get("/member/detail", memberController.verifyAuth); 
+router.get(
+    "/member/detail", 
+    memberController.verifyAuth,
+    memberController.getMemberDetail); 
 
 /** Product */
 

@@ -5,15 +5,20 @@ console.log("TRAINING STARTED");
   - Naming standards 
      function, method, variable => Camel case  goHome
      class => PASCAL                           MemberService
-     folder => KEBAB
-     css => SNAKE  
+     folder => KEBAB hhaa-file
+     css => SNAKE  home_frame
   - Error handling
 */
 
-/*  Request:
+/*  Request type:
 Traditional API
-Rest API
+Rest API => JSON
 GraphQL API
+
+Request Method = GET || POST
+
+Request Structure: Header || Body
+
 
 
 Frontend development:

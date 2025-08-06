@@ -19,6 +19,7 @@ collection: "sessions",
 const app = express();
 console.log("__dirname", __dirname);
 app.use(express.static(path.join(__dirname, "public")));
+app.use("/uploads", express.static("./uploads"));
 app.use(express.urlencoded({extended: true})); // Middleware DP -> Traditional API
 app.use(express.json()); //Middleware DP -> RestAPI
 app.use(cookieParser());

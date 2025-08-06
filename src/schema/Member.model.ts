@@ -36,6 +36,10 @@ memberAddress: {
     type: String,
 },
 
+memberDesc: {
+    type: String,
+},
+
 memberImage: {
     type: String,
 },

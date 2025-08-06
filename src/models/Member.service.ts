@@ -14,8 +14,11 @@ class MemberService {
     /* SPA */
 
    public async getRestaurant(): Promise<Member> {
-      const result = await this.memberModel.findOne({memberType: MemberType.RESTAURANT})
+      const result = await this.memberModel
+      .findOne({memberType: MemberType.RESTAURANT})
+      .lean()   //Plain js datani qo'shib chiqarmoqchi bo'lsak
       .exec();
+      result.test = "test";
 
       if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.N_D_F);
       

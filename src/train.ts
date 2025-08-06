@@ -38,6 +38,58 @@ Pipe validation
 Database
  */
 
+/* TASK X
+
+Shunday function yozing, uni object va string 
+parametrlari bo'lsin.
+Bu function, birinchi object parametri tarkibida, 
+kalit sifatida ikkinchi string parametri
+necha marotaba takrorlanganlini sanab qaytarsin.
+
+Eslatma => Nested object'lar ham sanalsin
+
+MASALAN: countOccurrences({model: 'Bugatti', 
+steer: {model: 'HANKOOK', size: 30}}, 'model') 
+return 2
+
+Yuqoridagi misolda, birinchi argument object, 
+ikkinchi argument 'model'.
+Funktsiya, shu ikkinchi argument 'model', 
+birinchi argument object
+tarkibida kalit sifatida 2 marotaba takrorlanganligi
+uchun 2 soni return qilmoqda
+
+*/
+
+function countOccurrences(obj: any, keyToCount: string): number {
+  let count = 0;
+
+  function traverse(current: any) {
+    if (typeof current !== 'object' || current === null) return;
+
+    for (const key in current) {
+      if (key === keyToCount) {
+        count++;
+      }
+      traverse(current[key]); 
+    }
+  }
+
+  traverse(obj);
+  return count;
+}
+
+const data = {
+  model: 'Bugatti',
+  steer: {
+    model: 'HANKOOK',
+    size: 30
+  }
+};
+
+console.log(countOccurrences(data, 'model'));
+
+
 /*
 TASK W
 
@@ -52,19 +104,19 @@ Yuqoridagi namunada berilayotgan array ikkinchi parametr 3'ga
 asoslanib 3 bo'lakga bo'linib qaytmoqda. Qolgani esa o'z holati qolyapti
 */
 
-function chunkArray<T>(array: T[], size: number): T[][] {
-  const result: T[][] = [];
+// function chunkArray<T>(array: T[], size: number): T[][] {
+//   const result: T[][] = [];
 
-  for (let i = 0; i < array.length; i += size) {
-    result.push(array.slice(i, i + size));
-  }
+//   for (let i = 0; i < array.length; i += size) {
+//     result.push(array.slice(i, i + size));
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
-const input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-const chunks = chunkArray(input, 3);
-console.log(chunks);
+// const input = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const chunks = chunkArray(input, 3);
+// console.log(chunks);
 
 /* TASK V
 

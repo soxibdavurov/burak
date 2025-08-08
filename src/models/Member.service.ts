@@ -86,7 +86,10 @@ public async updateMember(
 ): Promise<Member> {
    const memberId = shapeIntoMongooseObjectId(member._id);
    const result = await this.memberModel
-   .findOneAndUpdate({_id:memberId}, input, {new:true})
+   .findByIdAndUpdate(
+      memberId, 
+      input, 
+      {new:true})
    .exec();
 if(!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UP_FAIL);
 

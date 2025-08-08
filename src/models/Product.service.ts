@@ -1,7 +1,9 @@
-import { Product, ProductInput, ProductUpdateInput } from "../libs/types/product";
+import { Product, ProductInput, ProductInquiry, ProductUpdateInput } from "../libs/types/product";
 import Errors, {HttpCode, Message} from "../libs/Errors";
 import ProductModel from "../schema/Product.model";
 import { shapeIntoMongooseObjectId } from "../libs/config";
+import { ProductStatus } from "../libs/enums/products.enum";
+import { T } from "../libs/types/common";
 
 class ProductService {
     private readonly productModel;
@@ -11,7 +13,30 @@ class ProductService {
     }
 
     /** SPA */
+public async getProducts(inquiry: ProductInquiry): Promise<Product[]>{
+    console.log("inquiry", inquiry);
+    const match: T={productStatus: ProductStatus.PROCESS};
+    if(inquiry.productCollection) 
+        match.productCollection = inquiry.productCollection;
+    if(inquiry.search) {
+        match.productName  = {$regex: new RegExp(inquiry.search, "i")};
+    }
 
+    const sort: T = inquiry.order === "productPrice"  
+    ? {[inquiry.order]:1} 
+    : {[inquiry.order]:-1};
+
+    const result = await this.productModel.aggregate([
+        {$match: match},
+        {$sort: sort},
+        {$skip: (inquiry.page * 1 -1) * inquiry.limit},
+        {$limit: inquiry.limit * 1},
+    ]).exec();
+
+    if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.N_D_F);
+
+    return result;
+}
 
     /** SSR */
 

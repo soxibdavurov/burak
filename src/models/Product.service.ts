@@ -1,9 +1,14 @@
-import { Product, ProductInput, ProductInquiry, ProductUpdateInput } from "../libs/types/product";
+import { 
+    Product, 
+    ProductInput, 
+    ProductInquiry, 
+    ProductUpdateInput } from "../libs/types/product";
 import Errors, {HttpCode, Message} from "../libs/Errors";
 import ProductModel from "../schema/Product.model";
 import { shapeIntoMongooseObjectId } from "../libs/config";
 import { ProductStatus } from "../libs/enums/products.enum";
 import { T } from "../libs/types/common";
+import {ObjectId} from "mongoose";
 
 class ProductService {
     private readonly productModel;
@@ -13,9 +18,11 @@ class ProductService {
     }
 
     /** SPA */
+
+
 public async getProducts(inquiry: ProductInquiry): Promise<Product[]>{
-    console.log("inquiry", inquiry);
     const match: T={productStatus: ProductStatus.PROCESS};
+
     if(inquiry.productCollection) 
         match.productCollection = inquiry.productCollection;
     if(inquiry.search) {
@@ -35,6 +42,24 @@ public async getProducts(inquiry: ProductInquiry): Promise<Product[]>{
 
     if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.N_D_F);
 
+    return result;
+}
+
+public async getProduct(memberId: ObjectId | null,
+    id: string
+): Promise<Product> {
+    const productId = shapeIntoMongooseObjectId(id);
+   
+    let result  = await this.productModel
+    .findOne({
+        _id: productId, 
+        productStatus: ProductStatus.PROCESS,
+    }).exec();
+  
+
+    if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.N_D_F);
+
+        //TODO If authenticated users => first => view log creation
     return result;
 }
 

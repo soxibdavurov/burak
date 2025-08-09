@@ -38,7 +38,30 @@ Pipe validation
 Database
  */
 
+/*
+TASK Y
+
+Shunday function yozing, uni 2'ta array parametri bo'lsin.
+Bu function ikkala arrayda ham ishtirok etgan bir xil
+qiymatlarni yagona arrayga joylab qaytarsin.
+
+MASALAN: findIntersection([1,2,3], [3,2,0]) return [2,3]
+
+Yuqoridagi misolda, argument sifatida berilayotgan array'larda
+o'xshash sonlar mavjud. Function'ning vazifasi esa ana shu
+ikkala array'da ishtirok etgan o'xshash sonlarni yagona arrayga
+joylab return qilmoqda.
+*/
+
+function findIntersection(arr1: number[], arr2: number[]): number[] {
+  return arr1.filter((value) => arr2.includes(value));
+}
+
+console.log(findIntersection([1, 2, 3], [3, 2, 0]));
+
+
 /* TASK X
+
 
 Shunday function yozing, uni object va string 
 parametrlari bo'lsin.
@@ -61,33 +84,33 @@ uchun 2 soni return qilmoqda
 
 */
 
-function countOccurrences(obj: any, keyToCount: string): number {
-  let count = 0;
+// function countOccurrences(obj: any, keyToCount: string): number {
+//   let count = 0;
 
-  function traverse(current: any) {
-    if (typeof current !== 'object' || current === null) return;
+//   function traverse(current: any) {
+//     if (typeof current !== 'object' || current === null) return;
 
-    for (const key in current) {
-      if (key === keyToCount) {
-        count++;
-      }
-      traverse(current[key]); 
-    }
-  }
+//     for (const key in current) {
+//       if (key === keyToCount) {
+//         count++;
+//       }
+//       traverse(current[key]); 
+//     }
+//   }
 
-  traverse(obj);
-  return count;
-}
+//   traverse(obj);
+//   return count;
+// }
 
-const data = {
-  model: 'Bugatti',
-  steer: {
-    model: 'HANKOOK',
-    size: 30
-  }
-};
+// const data = {
+//   model: 'Bugatti',
+//   steer: {
+//     model: 'HANKOOK',
+//     size: 30
+//   }
+// };
 
-console.log(countOccurrences(data, 'model'));
+// console.log(countOccurrences(data, 'model'));
 
 
 /*

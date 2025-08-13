@@ -38,6 +38,34 @@ Pipe validation
 Database
  */
 
+/* 
+TASK Z
+
+Shunday function yozing. Bu function sonlardan iborat array
+qabul qilsin. Function'ning vazifasi array tarkibidagi juft
+sonlarni topib ularni yig'disini qaytarsin.
+
+MASALAN:
+sumEvens([1, 2, 3]); return 2;
+sumEvens([1, 2, 3, 2]); return 4;
+
+Yuqoridagi misolda, bizning funktsiya
+berilayotgan array tarkibidagi sonlar ichidan faqatgina juft bo'lgan
+sonlarni topib, ularni hisoblab yig'indisini qaytarmoqda.
+
+*/
+
+function sumEvens(nums: number[]): number{
+
+   let sumForLoop = 0;
+    for (let i = 0; i < nums.length; i++) {
+        if(nums[i]%2==0) sumForLoop += nums[i];
+    }
+  return sumForLoop;
+}
+
+console.log(sumEvens([1, 2, 3])); 
+console.log(sumEvens([1, 2, 3, 2])); 
 /*
 TASK Y
 
@@ -53,11 +81,11 @@ ikkala array'da ishtirok etgan o'xshash sonlarni yagona arrayga
 joylab return qilmoqda.
 */
 
-function findIntersection(arr1: number[], arr2: number[]): number[] {
-  return arr1.filter((value) => arr2.includes(value));
-}
+// function findIntersection(arr1: number[], arr2: number[]): number[] {
+//   return arr1.filter((value) => arr2.includes(value));
+// }
 
-console.log(findIntersection([1, 2, 3], [3, 2, 0]));
+// console.log(findIntersection([1, 2, 3], [3, 2, 0]));
 
 
 /* TASK X
@@ -155,21 +183,21 @@ object sifatida qaytarilmoqda.
 
 */
 
-function countChars(str: string): Record<string, number> {
-  const result: Record<string, number> = {};
+// function countChars(str: string): Record<string, number> {
+//   const result: Record<string, number> = {};
 
-  for (const char of str) {
-    if (result[char]) {
-      result[char]++;
-    } else {
-      result[char] = 1;
-    }
-  }
+//   for (const char of str) {
+//     if (result[char]) {
+//       result[char]++;
+//     } else {
+//       result[char] = 1;
+//     }
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
-console.log(countChars("hello"));
+// console.log(countChars("hello"));
 
 
 /* TASK U

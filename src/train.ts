@@ -39,6 +39,20 @@ Database
  */
 
 /* 
+TASK-ZB:
+
+Shunday function yozing, uni 2 ta number parametri bolsin va berilgan sonlar orasidan random raqam return qilsin
+
+MASALAN: randomBetween(30, 50) return 45
+*/
+
+function randomBetween(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+console.log(randomBetween(30, 50)); 
+
+/* 
 TASK Z
 
 Shunday function yozing. Bu function sonlardan iborat array
@@ -55,17 +69,17 @@ sonlarni topib, ularni hisoblab yig'indisini qaytarmoqda.
 
 */
 
-function sumEvens(nums: number[]): number{
+// function sumEvens(nums: number[]): number{
 
-   let sumForLoop = 0;
-    for (let i = 0; i < nums.length; i++) {
-        if(nums[i]%2==0) sumForLoop += nums[i];
-    }
-  return sumForLoop;
-}
+//    let sumForLoop = 0;
+//     for (let i = 0; i < nums.length; i++) {
+//         if(nums[i]%2==0) sumForLoop += nums[i];
+//     }
+//   return sumForLoop;
+// }
 
-console.log(sumEvens([1, 2, 3])); 
-console.log(sumEvens([1, 2, 3, 2])); 
+// console.log(sumEvens([1, 2, 3])); 
+// console.log(sumEvens([1, 2, 3, 2,4,6])); 
 /*
 TASK Y
 

@@ -54,8 +54,8 @@ class OrderService {
        const promisedList =  input.map(async(item:OrderItemInput) => {
             item.orderId = orderId;
             item.productId = shapeIntoMongooseObjectId(item.productId);
-            await this.orderItemModel.create(item);
-            return "INSERTED";
+            
+            return await this.orderItemModel.create(item);
         });
 
         const orderItemsState = await Promise.all(promisedList);

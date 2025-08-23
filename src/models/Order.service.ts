@@ -98,33 +98,37 @@ public async getMyOrders(
     return result;
     }
 
-    public async updateOrder(
-        member: Member, 
-        input: OrderUpdateInput
-    ): Promise<Order> {
-        const memberId = shapeIntoMongooseObjectId(member._id),
-         orderId = shapeIntoMongooseObjectId(input.orderId),
-         orderStatus = input.orderStatus;
+  public async updateOrder(
+    member: Member,
+    input: OrderUpdateInput
+  ): Promise<Order> {
+    console.log("BU YANGI", input)
+    const memberId = shapeIntoMongooseObjectId(member._id),
+      orderId = shapeIntoMongooseObjectId(input.orderId),
+      orderStatus = input.orderStatus;
+     
+    const result = await this.orderModel
+      .findOneAndUpdate(
+        {
+          memberId: memberId,
+          _id: orderId,
+        },
+        { orderStatus: orderStatus },
+        { new: true }
+      )
+      .exec();
 
-         const result = await this.orderModel.findOneAndUpdate(
-            {
-                memberId: memberId,
-                _id: orderId,
-            },
-            {orderStatus: orderStatus},
-            {new: true}
-         )
-         .exec();
+      console.log("result", result)
 
-        if(!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UP_FAIL);
-        
+    if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UP_FAIL);
 
-        //orderStatus PAUSE=>PROCESS
-         if(orderStatus === OrderStatus.PROCESS) {
-            await this.memberService.addUserPoint(member, 1);
-         }
-        return result;
+    // orderStatus Pause => PROCESS + 1 point
+    if(orderStatus === OrderStatus.PROCESS) {
+      await this.memberService.addUserPoint(member, 1)
     }
+
+    return result;
+  }
 }
 
 export default OrderService;

@@ -38,6 +38,33 @@ Pipe validation
 Database
  */
 
+/* TASK ZE
+
+Shunday function yozing, uniygona string parametri mavjud bo'lsin.
+Bu function string tarkibidagi takrorlangan xarflarni olib tashlab qolgan
+qiymatni qaytarsin.
+
+MASALAN: removeDuplicate('stringg') return 'string'
+
+Yuqoridagi misolda, 'stringg' so'zi tarkibida 'g' harfi takrorlanmoqda
+funktsiyamiz shu bittadan ortiq takrorlangan harfni olib natijani
+qaytarmoqda.
+*/
+
+function removeDuplicate(str: string): string {
+  let result = "";
+  for (let char of str) {
+    if (!result.includes(char)) {
+      result += char;
+    }
+  }
+  return result;
+}
+
+// Misol
+console.log(removeDuplicate("stringg")); 
+console.log(removeDuplicate("hello"));  
+
 /*
 TASK ZD
 

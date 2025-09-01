@@ -67,7 +67,7 @@ restaurantController.processSignup = async (req: AdminRequest,
         console.log("Error, processSignup", err);
   const message = 
             err instanceof Errors ? err.message: Message.SMT_WENT_WR;
-        res.send(`<script>alert("${message}"); window.location.replace('admin/signup')</script>`);
+        res.send(`<script>alert("${message}"); window.location.replace('/admin/signup')</script>`);
     
     }    
 };

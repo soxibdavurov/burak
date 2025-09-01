@@ -38,6 +38,32 @@ Pipe validation
 Database
  */
 
+/* 
+TASK-ZF:
+
+Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni bosh harflarini katta harf qilib qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni esa oz holicha qoldirsin.
+MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
+
+*/
+function capitalizeWords(str: string): string {
+  const words: string[] = str.split(" ");
+  const result: string[] = [];
+
+  for (const word of words) {
+    if (word.length <= 2) {
+      result.push(word); // 1-2 harfli so‘zlar o‘z holicha
+    } else {
+      const boshi = word[0].toUpperCase();
+      const oxiri = word.substring(1).toLowerCase();
+      result.push(boshi + oxiri);
+    }
+  }
+
+  return result.join(" ");
+}
+
+console.log(capitalizeWords("name should be a string"));
+
 /* TASK ZE
 
 Shunday function yozing, uniygona string parametri mavjud bo'lsin.
@@ -51,19 +77,19 @@ funktsiyamiz shu bittadan ortiq takrorlangan harfni olib natijani
 qaytarmoqda.
 */
 
-function removeDuplicate(str: string): string {
-  let result = "";
-  for (let char of str) {
-    if (!result.includes(char)) {
-      result += char;
-    }
-  }
-  return result;
-}
+// function removeDuplicate(str: string): string {
+//   let result = "";
+//   for (let char of str) {
+//     if (!result.includes(char)) {
+//       result += char;
+//     }
+//   }
+//   return result;
+// }
 
-// Misol
-console.log(removeDuplicate("stringg")); 
-console.log(removeDuplicate("hello"));  
+// // Misol
+// console.log(removeDuplicate("stringg")); 
+// console.log(removeDuplicate("hello"));  
 
 /*
 TASK ZD
@@ -82,19 +108,19 @@ yangilangan arrayni qaytarmoqda.
 
 */
 
-function changeNumberInArray(index: number, arr: number[], newValue: number): number[] {
-  if (index < 0 || index >= arr.length) {
-    throw new Error("Index array chegarasidan tashqarida!");
-  }
+// function changeNumberInArray(index: number, arr: number[], newValue: number): number[] {
+//   if (index < 0 || index >= arr.length) {
+//     throw new Error("Index array chegarasidan tashqarida!");
+//   }
 
-  const updatedArray = [...arr];
+//   const updatedArray = [...arr];
   
-  updatedArray[index] = newValue;
+//   updatedArray[index] = newValue;
 
-  return updatedArray;
-}
+//   return updatedArray;
+// }
 
-console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
+// console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
 
 
 /* TASK ZC

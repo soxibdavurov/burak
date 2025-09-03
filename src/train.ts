@@ -39,30 +39,51 @@ Database
  */
 
 /* 
+TASK-ZG:
+
+Shunday function yozing, u berilgan string parametrni snake casega otkazib qaytarsin. 
+MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_string'
+*/
+
+
+function snakeCaseWords(str: string): string {
+  const words: string[] = str.split(" ");
+  const result: string[] = [];
+
+  for (const word of words) {
+   result.push(word)
+  }
+
+  return result.join("_");
+}
+
+console.log(snakeCaseWords("name should be a string"));
+
+/* 
 TASK-ZF:
 
 Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni bosh harflarini katta harf qilib qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni esa oz holicha qoldirsin.
 MASALAN: capitalizeWords('name should be a string') return 'Name Should be a String'
 
 */
-function capitalizeWords(str: string): string {
-  const words: string[] = str.split(" ");
-  const result: string[] = [];
+// function capitalizeWords(str: string): string {
+//   const words: string[] = str.split(" ");
+//   const result: string[] = [];
 
-  for (const word of words) {
-    if (word.length <= 2) {
-      result.push(word); 
-    } else {
-      const boshi = word[0].toUpperCase();
-      const oxiri = word.substring(1).toLowerCase();
-      result.push(boshi + oxiri);
-    }
-  }
+//   for (const word of words) {
+//     if (word.length <= 2) {
+//       result.push(word); 
+//     } else {
+//       const boshi = word[0].toUpperCase();
+//       const oxiri = word.substring(1).toLowerCase();
+//       result.push(boshi + oxiri);
+//     }
+//   }
 
-  return result.join(" ");
-}
+//   return result.join(" ");
+// }
 
-console.log(capitalizeWords("name should be a string"));
+// console.log(capitalizeWords("name should be a string"));
 
 /* TASK ZE
 

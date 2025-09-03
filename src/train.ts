@@ -51,7 +51,7 @@ function capitalizeWords(str: string): string {
 
   for (const word of words) {
     if (word.length <= 2) {
-      result.push(word); // 1-2 harfli so‘zlar o‘z holicha
+      result.push(word); 
     } else {
       const boshi = word[0].toUpperCase();
       const oxiri = word.substring(1).toLowerCase();

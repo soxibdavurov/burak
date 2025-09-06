@@ -39,6 +39,32 @@ Database
  */
 
 /* 
+TASK-ZH:
+
+Shunday function yozing, u berilgan array parametrni ichidagi eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin. 
+MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
+
+*/
+
+function findDisappearedNumbers(arr: number[]): number[] {
+
+  const max = Math.max(...arr);
+
+  const result: number[] = [];
+
+  for (let i = 1; i <= max; i++) {
+    if (!arr.includes(i)) {
+      result.push(i);
+    }
+  }
+
+  return result;
+}
+
+console.log(findDisappearedNumbers([1, 3, 4, 7])); 
+console.log(findDisappearedNumbers([2, 5]));       
+
+/* 
 TASK-ZG:
 
 Shunday function yozing, u berilgan string parametrni snake casega otkazib qaytarsin. 
@@ -46,18 +72,18 @@ MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_str
 */
 
 
-function snakeCaseWords(str: string): string {
-  const words: string[] = str.split(" ");
-  const result: string[] = [];
+// function snakeCaseWords(str: string): string {
+//   const words: string[] = str.split(" ");
+//   const result: string[] = [];
 
-  for (const word of words) {
-   result.push(word)
-  }
+//   for (const word of words) {
+//    result.push(word)
+//   }
 
-  return result.join("_");
-}
+//   return result.join("_");
+// }
 
-console.log(snakeCaseWords("name should be a string"));
+// console.log(snakeCaseWords("name should be a string"));
 
 /* 
 TASK-ZF:

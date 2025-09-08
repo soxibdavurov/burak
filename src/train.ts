@@ -38,6 +38,28 @@ Pipe validation
 Database
  */
 
+/*
+TASK ZI
+
+Shundan function yozing, bu function 3 soniydan so'ng
+"Hello World!" so'zini qaytarsin.
+
+MASALAN: delayHelloWorld("Hello World"); return "Hello World"
+*/
+
+function delayHelloWorld(message: string): Promise<string> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(message);
+    }, 3000);
+  });
+}
+
+delayHelloWorld("Hello World!").then((result) => {
+  console.log(result);
+});
+
+
 /* 
 TASK-ZH:
 
@@ -46,23 +68,23 @@ MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
 
 */
 
-function findDisappearedNumbers(arr: number[]): number[] {
+// function findDisappearedNumbers(arr: number[]): number[] {
 
-  const max = Math.max(...arr);
+//   const max = Math.max(...arr);
 
-  const result: number[] = [];
+//   const result: number[] = [];
 
-  for (let i = 1; i <= max; i++) {
-    if (!arr.includes(i)) {
-      result.push(i);
-    }
-  }
+//   for (let i = 1; i <= max; i++) {
+//     if (!arr.includes(i)) {
+//       result.push(i);
+//     }
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
-console.log(findDisappearedNumbers([1, 3, 4, 7])); 
-console.log(findDisappearedNumbers([2, 5]));       
+// console.log(findDisappearedNumbers([1, 3, 4, 7])); 
+// console.log(findDisappearedNumbers([2, 5]));       
 
 /* 
 TASK-ZG:

@@ -38,6 +38,27 @@ Pipe validation
 Database
  */
 
+/* 
+TASK-ZL:
+
+Shunday function yozing, u parametrda berilgan stringni kebab casega otkazib qaytarsin. Bosh harflarni kichik harflarga ham otkazsin.
+MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
+*/
+
+
+function stringToKebab(input: string): string {
+  return input
+    .trim()                 
+    .toLowerCase()         
+    .replace(/\s+/g, "-");  
+}
+
+// Test
+console.log(stringToKebab("I love Kebab"));   
+console.log(stringToKebab("  Hello World  "));
+console.log(stringToKebab("React JS Project")); 
+
+
 /*
 TASK-ZK:
 
@@ -60,20 +81,20 @@ function printNumbersJS() {
 printNumbersJS();
 */
 
-function printNumbersTS(): void {
-  let number: number = 1;
+// function printNumbersTS(): void {
+//   let number: number = 1;
 
-  const interval: ReturnType<typeof setInterval> = setInterval(() => {
-    console.log(number);
-    number++;
+//   const interval: ReturnType<typeof setInterval> = setInterval(() => {
+//     console.log(number);
+//     number++;
 
-    if (number > 5) {
-      clearInterval(interval);
-    }
-  }, 1000);
-}
+//     if (number > 5) {
+//       clearInterval(interval);
+//     }
+//   }, 1000);
+// }
 
-printNumbersTS();
+// printNumbersTS();
 
 
 

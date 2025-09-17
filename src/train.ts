@@ -38,6 +38,31 @@ Pipe validation
 Database
  */
 
+/* TASK ZM:
+
+Shunday function yozing, va bu function parametr
+sifatida raqamlarni qabul qilsin. Bu function qabul qilingan
+raqamlarni orqasiga o'girib qaytarsin
+
+MASALAN: reverseInteger(123456789); return 987654321;
+
+Yuqoridagi misolda, function kiritilgan raqamlarni orqasiga
+o'girib (reverse) qilib qaytarmoqda.
+
+// 1. Sonni stringga aylantiramiz
+  // 2. split bilan harflarga ajratamiz
+  // 3. reverse qilib, qayta join qilamiz
+  // 4. parseInt bilan qayta son ko‘rinishiga o‘tkazamiz
+  
+*/
+
+function reverseInteger(num: number): number {
+  const reversed = parseInt(num.toString().split('').reverse().join(''));
+  return reversed;
+}
+
+console.log(reverseInteger(123456789));
+
 /* 
 TASK-ZL:
 
@@ -46,17 +71,17 @@ MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
 */
 
 
-function stringToKebab(input: string): string {
-  return input
-    .trim()                 
-    .toLowerCase()         
-    .replace(/\s+/g, "-");  
-}
+// function stringToKebab(input: string): string {
+//   return input
+//     .trim()                 
+//     .toLowerCase()         
+//     .replace(/\s+/g, "-");  
+// }
 
-// Test
-console.log(stringToKebab("I love Kebab"));   
-console.log(stringToKebab("  Hello World  "));
-console.log(stringToKebab("React JS Project")); 
+// // Test
+// console.log(stringToKebab("I love Kebab"));   
+// console.log(stringToKebab("  Hello World  "));
+// console.log(stringToKebab("React JS Project")); 
 
 
 /*

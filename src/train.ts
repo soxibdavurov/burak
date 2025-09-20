@@ -38,6 +38,40 @@ Pipe validation
 Database
  */
 
+/* TASK ZN: 
+
+Shunday function yozing, uni array va number parametri bo'lsin.
+Function'ning vazifasi ikkinchi parametr'da berilgan raqam, birinchi
+array parametr'ning indeksi bo'yicha hisoblanib, shu indeksgacha bo'lgan
+raqamlarni indeksdan tashqarida bo'lgan raqamlar bilan o'rnini
+almashtirib qaytarsin.
+
+MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3); return [5, 6, 1, 2, 3, 4];
+
+function rotateArray2<T>(arr: T[], index: number): T[] {
+  const copy = [...arr]; 
+  const front = copy.splice(0, index + 1);
+  return [...copy, ...front];
+}
+
+console.log(rotateArray2([1, 2, 3, 4, 5, 6], 3));
+
+
+*/
+
+function rotateArray<T>(arr: T[], index: number): T[] {
+  if (arr.length === 0) return arr;
+  const n = index % arr.length;
+  const front = arr.slice(0, n + 1);
+  const back = arr.slice(n + 1);
+  return [...back, ...front];
+}
+
+console.log(rotateArray([1, 2, 3, 4, 5, 6], 3));
+
+
+
+
 /* TASK ZM:
 
 Shunday function yozing, va bu function parametr
@@ -56,12 +90,12 @@ o'girib (reverse) qilib qaytarmoqda.
   
 */
 
-function reverseInteger(num: number): number {
-  const reversed = parseInt(num.toString().split('').reverse().join(''));
-  return reversed;
-}
+// function reverseInteger(num: number): number {
+//   const reversed = parseInt(num.toString().split('').reverse().join(''));
+//   return reversed;
+// }
 
-console.log(reverseInteger(123456789));
+// console.log(reverseInteger(123456789));
 
 /* 
 TASK-ZL:

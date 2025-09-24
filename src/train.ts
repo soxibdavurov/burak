@@ -38,6 +38,35 @@ Pipe validation
 Database
  */
 
+/* TASK ZO: 
+Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
+
+MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
+*/
+
+function areParenthesesBalanced(str: string): boolean {
+  let count: number = 0;
+
+  for (const char of str) {
+    if (char === "(") {
+      count++;
+    } else if (char === ")") {
+      count--;
+    }
+
+    if (count < 0) {
+      return false;
+    }
+  }
+
+  return count === 0;
+}
+
+console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda"));
+console.log(areParenthesesBalanced("(abc(def)"));
+console.log(areParenthesesBalanced(")(abc)"));
+console.log(areParenthesesBalanced("no brackets here"));
+
 /* TASK ZN: 
 
 Shunday function yozing, uni array va number parametri bo'lsin.
@@ -59,15 +88,15 @@ console.log(rotateArray2([1, 2, 3, 4, 5, 6], 3));
 
 */
 
-function rotateArray<T>(arr: T[], index: number): T[] {
-  if (arr.length === 0) return arr;
-  const n = index % arr.length;
-  const front = arr.slice(0, n + 1);
-  const back = arr.slice(n + 1);
-  return [...back, ...front];
-}
+// function rotateArray<T>(arr: T[], index: number): T[] {
+//   if (arr.length === 0) return arr;
+//   const n = index % arr.length;
+//   const front = arr.slice(0, n + 1);
+//   const back = arr.slice(n + 1);
+//   return [...back, ...front];
+// }
 
-console.log(rotateArray([1, 2, 3, 4, 5, 6], 3));
+// console.log(rotateArray([1, 2, 3, 4, 5, 6], 3));
 
 
 

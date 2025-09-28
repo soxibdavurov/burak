@@ -38,34 +38,61 @@ Pipe validation
 Database
  */
 
+/* TASK-ZP:
+
+Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
+MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
+
+*/
+
+function countNumberAndLetters(str: string): {
+  number: number;
+  letter: number;
+} {
+  let numbers = 0;
+  let letters = 0;
+
+  for (let char of str) {
+    if (/[0-9]/.test(char)) {
+      numbers++;
+    } else if (/[a-zA-Z]/.test(char)) {
+      letters++;
+    }
+  }
+
+  return { number: numbers, letter: letters };
+}
+
+console.log(countNumberAndLetters("string152%¥"));
+
 /* TASK ZO: 
 Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
 
 MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
 */
 
-function areParenthesesBalanced(str: string): boolean {
-  let count: number = 0;
+// function areParenthesesBalanced(str: string): boolean {
+//   let count: number = 0;
 
-  for (const char of str) {
-    if (char === "(") {
-      count++;
-    } else if (char === ")") {
-      count--;
-    }
+//   for (const char of str) {
+//     if (char === "(") {
+//       count++;
+//     } else if (char === ")") {
+//       count--;
+//     }
 
-    if (count < 0) {
-      return false;
-    }
-  }
+//     if (count < 0) {
+//       return false;
+//     }
+//   }
 
-  return count === 0;
-}
+//   return count === 0;
+// }
 
-console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda"));
-console.log(areParenthesesBalanced("(abc(def)"));
-console.log(areParenthesesBalanced(")(abc)"));
-console.log(areParenthesesBalanced("no brackets here"));
+// console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda"));
+// console.log(areParenthesesBalanced("(abc(def)"));
+// console.log(areParenthesesBalanced(")(abc)"));
+// console.log(areParenthesesBalanced("no brackets here"));
 
 /* TASK ZN: 
 
@@ -97,9 +124,6 @@ console.log(rotateArray2([1, 2, 3, 4, 5, 6], 3));
 // }
 
 // console.log(rotateArray([1, 2, 3, 4, 5, 6], 3));
-
-
-
 
 /* TASK ZM:
 
@@ -133,19 +157,17 @@ Shunday function yozing, u parametrda berilgan stringni kebab casega otkazib qay
 MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
 */
 
-
 // function stringToKebab(input: string): string {
 //   return input
-//     .trim()                 
-//     .toLowerCase()         
-//     .replace(/\s+/g, "-");  
+//     .trim()
+//     .toLowerCase()
+//     .replace(/\s+/g, "-");
 // }
 
 // // Test
-// console.log(stringToKebab("I love Kebab"));   
+// console.log(stringToKebab("I love Kebab"));
 // console.log(stringToKebab("  Hello World  "));
-// console.log(stringToKebab("React JS Project")); 
-
+// console.log(stringToKebab("React JS Project"));
 
 /*
 TASK-ZK:
@@ -184,8 +206,6 @@ printNumbersJS();
 
 // printNumbersTS();
 
-
-
 /*
 TASK ZJ:
 
@@ -212,10 +232,9 @@ bizning function ularning yig'indisini hisoblab qaytarmoqda.
 //   return sum;
 // }
 
-
-// console.log(reduceNestedArray([1, [1, 2, [4]]])); 
+// console.log(reduceNestedArray([1, [1, 2, [4]]]));
 // console.log(reduceNestedArray([15, [5, [1, 3]]]));
-// console.log(reduceNestedArray([[1, 2], [3, 4, [5]]])); 
+// console.log(reduceNestedArray([[1, 2], [3, 4, [5]]]));
 
 /*
 TASK ZI
@@ -237,7 +256,6 @@ MASALAN: delayHelloWorld("Hello World"); return "Hello World"
 // delayHelloWorld("Hello World!").then((result) => {
 //   console.log(result);
 // });
-
 
 /* 
 TASK-ZH:
@@ -262,8 +280,8 @@ MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
 //   return result;
 // }
 
-// console.log(findDisappearedNumbers([1, 3, 4, 7])); 
-// console.log(findDisappearedNumbers([2, 5]));       
+// console.log(findDisappearedNumbers([1, 3, 4, 7]));
+// console.log(findDisappearedNumbers([2, 5]));
 
 /* 
 TASK-ZG:
@@ -271,7 +289,6 @@ TASK-ZG:
 Shunday function yozing, u berilgan string parametrni snake casega otkazib qaytarsin. 
 MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_string'
 */
-
 
 // function snakeCaseWords(str: string): string {
 //   const words: string[] = str.split(" ");
@@ -299,7 +316,7 @@ MASALAN: capitalizeWords('name should be a string') return 'Name Should be a Str
 
 //   for (const word of words) {
 //     if (word.length <= 2) {
-//       result.push(word); 
+//       result.push(word);
 //     } else {
 //       const boshi = word[0].toUpperCase();
 //       const oxiri = word.substring(1).toLowerCase();
@@ -336,8 +353,8 @@ qaytarmoqda.
 // }
 
 // // Misol
-// console.log(removeDuplicate("stringg")); 
-// console.log(removeDuplicate("hello"));  
+// console.log(removeDuplicate("stringg"));
+// console.log(removeDuplicate("hello"));
 
 /*
 TASK ZD
@@ -362,14 +379,13 @@ yangilangan arrayni qaytarmoqda.
 //   }
 
 //   const updatedArray = [...arr];
-  
+
 //   updatedArray[index] = newValue;
 
 //   return updatedArray;
 // }
 
 // console.log(changeNumberInArray(1, [1, 3, 7, 2], 2));
-
 
 /* TASK ZC
 
@@ -393,11 +409,10 @@ Yoki 10 gradus Selsiy, 50 Farenhaytga teng.
 //   return (fahrenheit - 32) * 5/9;
 // }
 
-
-// console.log(celsiusToFahrenheit(0));   
-// console.log(celsiusToFahrenheit(10));  
-// console.log(fahrenheitToCelsius(32));  
-// console.log(fahrenheitToCelsius(50)); 
+// console.log(celsiusToFahrenheit(0));
+// console.log(celsiusToFahrenheit(10));
+// console.log(fahrenheitToCelsius(32));
+// console.log(fahrenheitToCelsius(50));
 
 /* 
 TASK-ZB:
@@ -411,7 +426,7 @@ MASALAN: randomBetween(30, 50) return 45
 //   return Math.floor(Math.random() * (max - min + 1)) + min;
 // }
 
-// console.log(randomBetween(30, 50)); 
+// console.log(randomBetween(30, 50));
 
 /* 
 TASK Z
@@ -439,8 +454,8 @@ sonlarni topib, ularni hisoblab yig'indisini qaytarmoqda.
 //   return sumForLoop;
 // }
 
-// console.log(sumEvens([1, 2, 3])); 
-// console.log(sumEvens([1, 2, 3, 2,4,6])); 
+// console.log(sumEvens([1, 2, 3]));
+// console.log(sumEvens([1, 2, 3, 2,4,6]));
 /*
 TASK Y
 
@@ -461,7 +476,6 @@ joylab return qilmoqda.
 // }
 
 // console.log(findIntersection([1, 2, 3], [3, 2, 0]));
-
 
 /* TASK X
 
@@ -497,7 +511,7 @@ uchun 2 soni return qilmoqda
 //       if (key === keyToCount) {
 //         count++;
 //       }
-//       traverse(current[key]); 
+//       traverse(current[key]);
 //     }
 //   }
 
@@ -514,7 +528,6 @@ uchun 2 soni return qilmoqda
 // };
 
 // console.log(countOccurrences(data, 'model'));
-
 
 /*
 TASK W
@@ -574,7 +587,6 @@ object sifatida qaytarilmoqda.
 
 // console.log(countChars("hello"));
 
-
 /* TASK U
 
 Shunday function tuzing, uni number parametri bo'lsin.
@@ -597,7 +609,7 @@ Keyingi namunada ham xuddi shunday xolat takrorlanmoqda.
 //   return count;
 // }
 
-// console.log(sumOdds(9)) 
+// console.log(sumOdds(9))
 // console.log(sumOdds(111))
 
 /* TASK T
@@ -657,8 +669,8 @@ MASALAN: missingNumber([3, 0, 1]) return 2
 //   return expectedSum - actualSum;
 // }
 
-// console.log(missingNumber([3, 0, 1])); 
-// console.log(missingNumber([0, 1]));    
+// console.log(missingNumber([3, 0, 1]));
+// console.log(missingNumber([0, 1]));
 // console.log(missingNumber([8,6,4,2,3,5,7,0,1]));
 
 /**           TASK R
@@ -677,7 +689,6 @@ MASALAN: calculate("1 + 3"); return 4;
 //   return n1 + n2;
 // }
 
-
 // /* 2-usul */
 // function calculate2(expression: string): number {
 //   try {
@@ -688,15 +699,13 @@ MASALAN: calculate("1 + 3"); return 4;
 //   }
 // }
 
-
 // console.log(calculate("1 + 3"));
 
 // console.log(calculate2("1 + 3"));
 // console.log(calculate2("2 + 5 - 3"));
 // console.log(calculate2("4 * 2 + 1"));
 // console.log(calculate2("10 / 2 + 3"));
-// console.log(calculate2("5 + 3 * 2"));   
-
+// console.log(calculate2("5 + 3 * 2"));
 
 /* 
 TASK Q:
@@ -718,8 +727,8 @@ propertysida mavjud bo'lmaganligi uchun 'false' natijani qaytarmoqda.
 //   return key in obj;
 // }
 
-// console.log(hasProperty({ name: "BMW", model: "M3" }, "model")); 
-// console.log(hasProperty({ name: "BMW", model: "M3" }, "year")); 
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));
 
 /** 
  TASK P:
@@ -738,8 +747,6 @@ objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
 // }
 
 // console.log(objectToArray({ a: 10, b: 20 }));
-
-
 
 /** 
  TASK O:
@@ -813,7 +820,6 @@ MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1},
 //   return arr;
 // }
 
-
 // /* 2-usul */
 // function getSquareNumber2(nums: number[]) {
 //   return nums.map(num => ({
@@ -824,7 +830,6 @@ MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1},
 
 //     console.log(getSquareNumber([1,2,3]));
 //     console.log(getSquareNumber2([4,5,6]));
-
 
 /* 
 TASK L: 
@@ -846,12 +851,9 @@ return "ew ekil gnidoc";
 // const result: string = reversedWords.join(" ");
 //   return   result;
 
-
 // }
 
 // console.log(reverseSentence("We love coding"));
-
-
 
 /* TASK K: 
 
@@ -868,7 +870,7 @@ MASALAN: countVowels("string") return 1;
 //   for(let i of word) {
 //     if(unlilar.includes(i))
 //       vowels++;
-//     } 
+//     }
 //   return vowels;
 // }
 
@@ -889,18 +891,17 @@ eng uzun so'z bo'lganligi uchun 'Uzbekistan'ni qaytarmoqda
 // function findLongestWord(text: string): string {
 //   let longest = "";
 //   const words = text.split(" ");
-  
+
 //   for(const word of words) {
 //       if(word.length>longest.length) {
 //         longest = word;
-//       } 
+//       }
 //   }
 
 //   return longest;
 // }
 
 // console.log(findLongestWord(`Mening yurtim O'zbekiston`));
-
 
 /* TASK-I:
 
@@ -935,7 +936,6 @@ Yuqoridag misolda argument sifatida kiritilayotgan array tarkibida 4 soni ko'p t
 
 // console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4, 3, 3]));
 
-
 /*                  TASK H-2 
 Shunday function tuzing, unga string argument pass bolsin. 
 Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
@@ -956,7 +956,6 @@ MASALAN: getDigits("m14i1t") return qiladi "141"
 
 // console.log(getDigits("jhdf1kh354j32h7j"));
 
-
 /*                  TASK H-1:
 shunday function tuzing, u integerlardan iborat arrayni argument sifatida qabul qilib, 
 faqat positive qiymatlarni olib string holatda return qilsin
@@ -974,8 +973,6 @@ MASALAN: getPositive([1, -4, 2]) return qiladi "12"
 // }
 
 // console.log(getPositive([32,-34,-4,14,0,45,3,-4]));
-
-
 
 /*                  TASK G:
 Yagona parametrga ega function tuzing.
@@ -1002,7 +999,6 @@ Va bu 21 soni arrayning tarkibidagi birinchi eng katta son hisobladi va bizga un
 
 // console.log(getHighestIndex(arr));
 
-
 /*                  TASK F:
 Yagona string argumentga ega findDoublers nomli function tuzing
 Agar stringda bittadan ortiq bir xil harflar ishtirok etgan bo'lsa
@@ -1013,20 +1009,19 @@ MASALAN: findDoublers("hello"); natija true qaytadi. Sababi ikki marotaba takror
 
 // findDoublers = (str) => {
 //   const letterCount = {};
-  
+
 //   for (let char of str) {
 //     if (letterCount[char]) {
-//       return true; 
+//       return true;
 //     }
-//     letterCount[char] = 1; 
+//     letterCount[char] = 1;
 //   }
-  
-//   return false; 
+
+//   return false;
 // }
 
 // console.log(findDoublers("qwertyuiopasd"));
 // console.log(findDoublers("hello"));
-
 
 /*                  TASK E:
 Shunday function tuzing, u bitta string argumentni qabul qilib osha stringni teskari qilib return qilsin.
@@ -1047,9 +1042,8 @@ MASALAN: getReverse("hello") return qilsin "olleh"                   */
 // console.log( str.split('').reverse().join(''));
 // }
 
-// getReverse('Sokhibjon'); 
-// getReverse2('Justin'); 
-
+// getReverse('Sokhibjon');
+// getReverse2('Justin');
 
 /*                  TASK D                   */
 
@@ -1127,8 +1121,7 @@ shop.sotish('non', 3);
 shop.qabul('cola', 4);
 shop.qoldiq();
 
-*/ 
-
+*/
 
 /*                  TASK B            
 Shunday function tuzing, u 1ta string parametrga ega bolsin, 
@@ -1139,7 +1132,7 @@ MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.
 // let mixWord = "skdfjlsdjf3847289361fdslkhfk2A223454";
 
 // function countLetters(mixWord) {
-//   let count = 0; 
+//   let count = 0;
 //   for (let i = 0; i < mixWord.length; i++) {
 //     if (mixWord[i] >= '0' && mixWord[i] <= '9') {
 //       count++;
@@ -1177,7 +1170,6 @@ Masalan: countLetter("e", "engineer")
 // countLetter(word, "m");
 // countLetter("Sokhibjon", " o");
 // countLetter("James", "e");
-
 
 // function countLetter2(text, letter) {
 //   let count = 0;

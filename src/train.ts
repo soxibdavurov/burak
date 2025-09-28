@@ -38,6 +38,31 @@ Pipe validation
 Database
  */
 
+/* TASK ZQ:
+
+Shunday function yozing, u parametridagi array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
+MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
+*/
+
+function findDuplicates(arr: number[]): number[] {
+  const counts: Record<number, number> = {};
+  const result: number[] = [];
+
+  for (let num of arr) {
+    counts[num] = (counts[num] || 0) + 1;
+  }
+
+  for (let key in counts) {
+    if (counts[+key] > 1) {
+      result.push(+key);
+    }
+  }
+
+  return result;
+}
+
+console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]));
+
 /* TASK-ZP:
 
 Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
@@ -45,25 +70,25 @@ MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
 
 */
 
-function countNumberAndLetters(str: string): {
-  number: number;
-  letter: number;
-} {
-  let numbers = 0;
-  let letters = 0;
+// function countNumberAndLetters(str: string): {
+//   number: number;
+//   letter: number;
+// } {
+//   let numbers = 0;
+//   let letters = 0;
 
-  for (let char of str) {
-    if (/[0-9]/.test(char)) {
-      numbers++;
-    } else if (/[a-zA-Z]/.test(char)) {
-      letters++;
-    }
-  }
+//   for (let char of str) {
+//     if (/[0-9]/.test(char)) {
+//       numbers++;
+//     } else if (/[a-zA-Z]/.test(char)) {
+//       letters++;
+//     }
+//   }
 
-  return { number: numbers, letter: letters };
-}
+//   return { number: numbers, letter: letters };
+// }
 
-console.log(countNumberAndLetters("string152%¥"));
+// console.log(countNumberAndLetters("string152%¥"));
 
 /* TASK ZO: 
 Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.

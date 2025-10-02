@@ -38,30 +38,56 @@ Pipe validation
 Database
  */
 
+/* TASK-ZR:
+
+Shunday function yozing, u 2 ta array parametr qabul qilsin.
+Siz bu ikki arrayning qiymatlari o'xshash bo'lishini 
+(ya'ni, ularning barcha elementlari bir xil bo'lishini) tekshirishingiz kerak.
+
+MASALAN:
+areArraysEqual([1, 2, 3], [3, 1, 2]) // true
+areArraysEqual([1, 2, 3], [3, 1, 2, 1]) // true
+areArraysEqual([1, 2, 3], [4, 1, 2]) // false
+*/
+
+function areArraysEqual<T>(arr1: T[], arr2: T[]): boolean {
+  const set1 = new Set(arr1);
+  for (let val of set1) {
+    if (!arr2.includes(val)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));
+console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1]));
+console.log(areArraysEqual([1, 2, 3], [4, 1, 2]));
+
 /* TASK ZQ:
 
 Shunday function yozing, u parametridagi array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
 MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
 */
 
-function findDuplicates(arr: number[]): number[] {
-  const counts: Record<number, number> = {};
-  const result: number[] = [];
+// function findDuplicates(arr: number[]): number[] {
+//   const counts: Record<number, number> = {};
+//   const result: number[] = [];
 
-  for (let num of arr) {
-    counts[num] = (counts[num] || 0) + 1;
-  }
+//   for (let num of arr) {
+//     counts[num] = (counts[num] || 0) + 1;
+//   }
 
-  for (let key in counts) {
-    if (counts[+key] > 1) {
-      result.push(+key);
-    }
-  }
+//   for (let key in counts) {
+//     if (counts[+key] > 1) {
+//       result.push(+key);
+//     }
+//   }
 
-  return result;
-}
+//   return result;
+// }
 
-console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]));
+// console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]));
 
 /* TASK-ZP:
 

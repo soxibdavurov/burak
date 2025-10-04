@@ -37,6 +37,26 @@ Backend
 Pipe validation
 Database
  */
+/*
+TASK ZS:
+
+Shunday function yozing, bu function parametrdagi array ichida
+bir marotaba takrorlangan element'ni qaytarsin
+
+MASALAN: singleNumber([4, 2, 1, 2, 1]); return 4;
+
+*/
+
+function singleNumber(arr: number[]): number {
+  let result = 0;
+  for (let num of arr) {
+    result ^= num; // XOR
+  }
+  return result;
+}
+
+console.log(singleNumber([4, 2, 1, 2, 1]));
+console.log(singleNumber([7, 3, 7, 5, 3]));
 
 /* TASK-ZR:
 
@@ -50,19 +70,19 @@ areArraysEqual([1, 2, 3], [3, 1, 2, 1]) // true
 areArraysEqual([1, 2, 3], [4, 1, 2]) // false
 */
 
-function areArraysEqual<T>(arr1: T[], arr2: T[]): boolean {
-  const set1 = new Set(arr1);
-  for (let val of set1) {
-    if (!arr2.includes(val)) {
-      return false;
-    }
-  }
-  return true;
-}
+// function areArraysEqual<T>(arr1: T[], arr2: T[]): boolean {
+//   const set1 = new Set(arr1);
+//   for (let val of set1) {
+//     if (!arr2.includes(val)) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
 
-console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));
-console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1]));
-console.log(areArraysEqual([1, 2, 3], [4, 1, 2]));
+// console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));
+// console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1]));
+// console.log(areArraysEqual([1, 2, 3], [4, 1, 2]));
 
 /* TASK ZQ:
 

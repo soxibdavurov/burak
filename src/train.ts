@@ -38,32 +38,51 @@ Pipe validation
 Database
  */
 
-/* 
+/*
+TASK-ZU:
+
+Shunday function yozing, u parametridagi array ichida takrorlanmagan raqamlar yig'indisini qaytarsin.
+MASALAN: sumOfUnique([1,2,3,2]) return 4
+*/
+
+function sumOfUnique(arr: number[]): number {
+  const count: Record<number, number> = {};
+  for (const num of arr) {
+    count[num] = (count[num] || 0) + 1;
+  }
+
+  return Object.entries(count)
+    .filter(([_, c]) => c === 1)
+    .reduce((sum, [num]) => sum + Number(num), 0);
+}
+
+console.log(sumOfUnique([1, 2, 3, 2]));
+/*
 TASK-ZT:
 
 Shunday function yozing, u parametridagi string ichida 1 martadan ortiq qaytarilmagan birinchi harf indeksini qaytarsin.
 MASALAN: firstUniqueCharIndex(“stamp”) return 0
 */
 
-function firstUniqueCharIndex(str: string): number {
-  const charCount: Record<string, number> = {};
+// function firstUniqueCharIndex(str: string): number {
+//   const charCount: Record<string, number> = {};
 
-  for (const char of str) {
-    charCount[char] = (charCount[char] || 0) + 1;
-  }
+//   for (const char of str) {
+//     charCount[char] = (charCount[char] || 0) + 1;
+//   }
 
-  for (let i = 0; i < str.length; i++) {
-    if (charCount[str[i]] === 1) {
-      return i;
-    }
-  }
+//   for (let i = 0; i < str.length; i++) {
+//     if (charCount[str[i]] === 1) {
+//       return i;
+//     }
+//   }
 
-  return -1;
-}
+//   return -1;
+// }
 
-console.log(firstUniqueCharIndex("stamp"));
-console.log(firstUniqueCharIndex("success"));
-console.log(firstUniqueCharIndex("aabb"));
+// console.log(firstUniqueCharIndex("stamp"));
+// console.log(firstUniqueCharIndex("success"));
+// console.log(firstUniqueCharIndex("aabb"));
 
 /*
 TASK ZS:
@@ -75,21 +94,21 @@ MASALAN: singleNumber([4, 2, 1, 2, 1]); return 4;
 
 */
 
-function singleNumber(arr: number[]): number {
-  let result = 0;
-  for (let num of arr) {
-    result ^= num; // XOR
-  }
-  return result;
-}
+// function singleNumber(arr: number[]): number {
+//   let result = 0;
+//   for (let num of arr) {
+//     result ^= num; // XOR
+//   }
+//   return result;
+// }
 
-console.log(singleNumber([4, 2, 1, 2, 1]));
-console.log(singleNumber([7, 3, 7, 5, 3]));
+// console.log(singleNumber([4, 2, 1, 2, 1]));
+// console.log(singleNumber([7, 3, 7, 5, 3]));
 
 /* TASK-ZR:
 
 Shunday function yozing, u 2 ta array parametr qabul qilsin.
-Siz bu ikki arrayning qiymatlari o'xshash bo'lishini 
+Siz bu ikki arrayning qiymatlari o'xshash bo'lishini
 (ya'ni, ularning barcha elementlari bir xil bo'lishini) tekshirishingiz kerak.
 
 MASALAN:
@@ -164,7 +183,7 @@ MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
 
 // console.log(countNumberAndLetters("string152%¥"));
 
-/* TASK ZO: 
+/* TASK ZO:
 Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
 
 MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
@@ -193,7 +212,7 @@ MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return 
 // console.log(areParenthesesBalanced(")(abc)"));
 // console.log(areParenthesesBalanced("no brackets here"));
 
-/* TASK ZN: 
+/* TASK ZN:
 
 Shunday function yozing, uni array va number parametri bo'lsin.
 Function'ning vazifasi ikkinchi parametr'da berilgan raqam, birinchi
@@ -204,7 +223,7 @@ almashtirib qaytarsin.
 MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3); return [5, 6, 1, 2, 3, 4];
 
 function rotateArray2<T>(arr: T[], index: number): T[] {
-  const copy = [...arr]; 
+  const copy = [...arr];
   const front = copy.splice(0, index + 1);
   return [...copy, ...front];
 }
@@ -239,7 +258,7 @@ o'girib (reverse) qilib qaytarmoqda.
   // 2. split bilan harflarga ajratamiz
   // 3. reverse qilib, qayta join qilamiz
   // 4. parseInt bilan qayta son ko‘rinishiga o‘tkazamiz
-  
+
 */
 
 // function reverseInteger(num: number): number {
@@ -249,7 +268,7 @@ o'girib (reverse) qilib qaytarmoqda.
 
 // console.log(reverseInteger(123456789));
 
-/* 
+/*
 TASK-ZL:
 
 Shunday function yozing, u parametrda berilgan stringni kebab casega otkazib qaytarsin. Bosh harflarni kichik harflarga ham otkazsin.
@@ -356,10 +375,10 @@ MASALAN: delayHelloWorld("Hello World"); return "Hello World"
 //   console.log(result);
 // });
 
-/* 
+/*
 TASK-ZH:
 
-Shunday function yozing, u berilgan array parametrni ichidagi eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin. 
+Shunday function yozing, u berilgan array parametrni ichidagi eng katta raqamgacha tushib qolgan raqamlarni bir arrayda qaytarsin.
 MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
 
 */
@@ -382,10 +401,10 @@ MASALAN: findDisappearedNumbers([1, 3, 4, 7]) return [2, 5, 6]
 // console.log(findDisappearedNumbers([1, 3, 4, 7]));
 // console.log(findDisappearedNumbers([2, 5]));
 
-/* 
+/*
 TASK-ZG:
 
-Shunday function yozing, u berilgan string parametrni snake casega otkazib qaytarsin. 
+Shunday function yozing, u berilgan string parametrni snake casega otkazib qaytarsin.
 MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_string'
 */
 
@@ -402,7 +421,7 @@ MASALAN: capitalizeWords('name should be a string') return 'name_should_be_a_str
 
 // console.log(snakeCaseWords("name should be a string"));
 
-/* 
+/*
 TASK-ZF:
 
 Shunday function yozing, uni string parametri bolsin. String ichidagi har bir sozni bosh harflarini katta harf qilib qaytarsin lekin 1 yoki 2 harfdan iborat sozlarni esa oz holicha qoldirsin.
@@ -513,7 +532,7 @@ Yoki 10 gradus Selsiy, 50 Farenhaytga teng.
 // console.log(fahrenheitToCelsius(32));
 // console.log(fahrenheitToCelsius(50));
 
-/* 
+/*
 TASK-ZB:
 
 Shunday function yozing, uni 2 ta number parametri bolsin va berilgan sonlar orasidan random raqam return qilsin
@@ -527,7 +546,7 @@ MASALAN: randomBetween(30, 50) return 45
 
 // console.log(randomBetween(30, 50));
 
-/* 
+/*
 TASK Z
 
 Shunday function yozing. Bu function sonlardan iborat array
@@ -579,21 +598,21 @@ joylab return qilmoqda.
 /* TASK X
 
 
-Shunday function yozing, uni object va string 
+Shunday function yozing, uni object va string
 parametrlari bo'lsin.
-Bu function, birinchi object parametri tarkibida, 
+Bu function, birinchi object parametri tarkibida,
 kalit sifatida ikkinchi string parametri
 necha marotaba takrorlanganlini sanab qaytarsin.
 
 Eslatma => Nested object'lar ham sanalsin
 
-MASALAN: countOccurrences({model: 'Bugatti', 
-steer: {model: 'HANKOOK', size: 30}}, 'model') 
+MASALAN: countOccurrences({model: 'Bugatti',
+steer: {model: 'HANKOOK', size: 30}}, 'model')
 return 2
 
-Yuqoridagi misolda, birinchi argument object, 
+Yuqoridagi misolda, birinchi argument object,
 ikkinchi argument 'model'.
-Funktsiya, shu ikkinchi argument 'model', 
+Funktsiya, shu ikkinchi argument 'model',
 birinchi argument object
 tarkibida kalit sifatida 2 marotaba takrorlanganligi
 uchun 2 soni return qilmoqda
@@ -661,7 +680,7 @@ asoslanib 3 bo'lakga bo'linib qaytmoqda. Qolgani esa o'z holati qolyapti
 Shunday function yozing, uni string parametri bo'lsin.
 Va bu function stringdagi har bir harfni o'zi bilan
 necha marotaba taktorlanganligini ko'rsatuvchi object qaytarsin.
-  
+
 MASALAN: countChars("hello") return {h: 1, e: 1, l: 2, o: 1}
 
 Yuqoridagi misolda, 'hello' so'zi tarkibida
@@ -695,7 +714,7 @@ oraliqda nechta toq sonlar borligini aniqlab return qilsi.
 MASALAN: sumOdds(9) return 4; sumOdds(11) return 5;
 
 Yuqoridagi birinchi misolda, argument sifatida, 9 berilmoqda.
-Va 0'dan boshlab sanaganda 9'gacha 4'ta toq son mavjud. 
+Va 0'dan boshlab sanaganda 9'gacha 4'ta toq son mavjud.
 Keyingi namunada ham xuddi shunday xolat takrorlanmoqda.
 
 */
@@ -750,7 +769,7 @@ Yuqoridagi misolda, ikkala arrayni birlashtirib, tartib raqam bo'yicha tartiblab
 // }
 
 // console.log(mergeSortedArrays2([0, 3, 4, 31], [4, 6, 30]));
-/* 
+/*
 
 
 TASK-S:
@@ -806,7 +825,7 @@ MASALAN: calculate("1 + 3"); return 4;
 // console.log(calculate2("10 / 2 + 3"));
 // console.log(calculate2("5 + 3 * 2"));
 
-/* 
+/*
 TASK Q:
 
 Shunday function yozing, u 2 ta parametrga ega bo'lib
@@ -829,15 +848,15 @@ propertysida mavjud bo'lmaganligi uchun 'false' natijani qaytarmoqda.
 // console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
 // console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));
 
-/** 
+/**
  TASK P:
 
-Parametr sifatida yagona object qabul qiladigan 
+Parametr sifatida yagona object qabul qiladigan
 function yozing.
-Qabul qilingan objectni nested array 
+Qabul qilingan objectni nested array
 sifatida convert qilib qaytarsin
 
-MASALAN: 
+MASALAN:
 objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
  */
 
@@ -847,7 +866,7 @@ objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
 
 // console.log(objectToArray({ a: 10, b: 20 }));
 
-/** 
+/**
  TASK O:
 
 Shunday function yozing va u har xil qiymatlardan iborat array qabul qilsin.
@@ -873,15 +892,15 @@ Qolganlari nested bo'lib yoki type'lari number emas.
 
 // console.log("Yig'indi: ", calculateSumOfNumbers([43,3,"3434","hehe",true,null,"3",4]));
 
-/** 
+/**
  TASK N:
 
 Shunday function yozing, u string qabul qilsin va string palindrom
-yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan 
+yani togri oqilganda ham, orqasidan oqilganda ham bir hil oqiladigan
 soz ekanligini aniqlab boolean qiymat qaytarsin.
-MASALAN: palindromCheck("dad") return true;  
+MASALAN: palindromCheck("dad") return true;
 palindromCheck("son") return false;
- * 
+ *
  */
 
 // function palindromCheck(word: string): boolean {
@@ -895,14 +914,14 @@ palindromCheck("son") return false;
 // console.log(palindromCheck("kiyik"));
 // console.log(palindromCheck("tut"));
 
-/** 
- * TASK M: 
+/**
+ * TASK M:
 
-Shunday function yozing, u raqamlardan tashkil topgan array 
-qabul qilsin va array ichidagi har bir raqam uchun raqamni 
-ozi va hamda osha raqamni kvadratidan tashkil topgan 
+Shunday function yozing, u raqamlardan tashkil topgan array
+qabul qilsin va array ichidagi har bir raqam uchun raqamni
+ozi va hamda osha raqamni kvadratidan tashkil topgan
 object hosil qilib, hosil bolgan objectlarni array ichida qaytarsin.
-MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1}, 
+MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1},
 {number: 2, square: 4}, {number: 3, square: 9}];
  */
 
@@ -930,14 +949,14 @@ MASALAN: getSquareNumbers([1, 2, 3]) return [{number: 1, square: 1},
 //     console.log(getSquareNumber([1,2,3]));
 //     console.log(getSquareNumber2([4,5,6]));
 
-/* 
-TASK L: 
+/*
+TASK L:
 
-Shunday function yozing, u string qabul 
-qilsin va string ichidagi hamma sozlarni 
-chappasiga yozib va sozlar ketma-ketligini 
+Shunday function yozing, u string qabul
+qilsin va string ichidagi hamma sozlarni
+chappasiga yozib va sozlar ketma-ketligini
 buzmasdan stringni qaytarsin.
-MASALAN: reverseSentence("we like coding!") 
+MASALAN: reverseSentence("we like coding!")
 return "ew ekil gnidoc";
 */
 
@@ -954,9 +973,9 @@ return "ew ekil gnidoc";
 
 // console.log(reverseSentence("We love coding"));
 
-/* TASK K: 
+/* TASK K:
 
-Shunday function yozing, u string qabul qilsin va 
+Shunday function yozing, u string qabul qilsin va
 string ichidagi unli harflar sonini qaytarsin.
 MASALAN: countVowels("string") return 1;
 
@@ -974,7 +993,7 @@ MASALAN: countVowels("string") return 1;
 // }
 
 // console.log(countVowels('pomidor'));
-/* 
+/*
 TASK-J
 
 Shunday function tuzing, u string qabul qilsin.
@@ -1035,8 +1054,8 @@ Yuqoridag misolda argument sifatida kiritilayotgan array tarkibida 4 soni ko'p t
 
 // console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4, 3, 3]));
 
-/*                  TASK H-2 
-Shunday function tuzing, unga string argument pass bolsin. 
+/*                  TASK H-2
+Shunday function tuzing, unga string argument pass bolsin.
 Function ushbu agrumentdagi digitlarni yangi stringda return qilsin
 
 MASALAN: getDigits("m14i1t") return qiladi "141"
@@ -1056,7 +1075,7 @@ MASALAN: getDigits("m14i1t") return qiladi "141"
 // console.log(getDigits("jhdf1kh354j32h7j"));
 
 /*                  TASK H-1:
-shunday function tuzing, u integerlardan iborat arrayni argument sifatida qabul qilib, 
+shunday function tuzing, u integerlardan iborat arrayni argument sifatida qabul qilib,
 faqat positive qiymatlarni olib string holatda return qilsin
 
 MASALAN: getPositive([1, -4, 2]) return qiladi "12"
@@ -1146,8 +1165,8 @@ MASALAN: getReverse("hello") return qilsin "olleh"                   */
 
 /*                  TASK D                   */
 
-/* Shunday function tuzing, u 2ta string parametr ega bolsin, 
-hamda agar har ikkala string bir hil 
+/* Shunday function tuzing, u 2ta string parametr ega bolsin,
+hamda agar har ikkala string bir hil
 harflardan iborat bolsa true aks holda false qaytarsin
 
 MASALAN checkContent("mitgroup", "gmtiprou") return qiladi true;
@@ -1169,16 +1188,16 @@ console.log(checkContent("Sohibjon", "nojbihoS")); // true
 
 */
 
-/*                  TASK C   
-Shunday class tuzing tuzing nomi Shop, 
-va uni constructoriga 3 hil mahsulot pass bolsin, 
-hamda classning 3ta methodi bolsin, biri qoldiq, 
+/*                  TASK C
+Shunday class tuzing tuzing nomi Shop,
+va uni constructoriga 3 hil mahsulot pass bolsin,
+hamda classning 3ta methodi bolsin, biri qoldiq,
 biri sotish va biri qabul. Har bir method ishga tushgan vaqt ham log qilinsin.
 
-MASALAN: const shop = new Shop(4, 5, 2); 
-shop.qoldiq() return hozir 20:40da 4ta non, 5ta lagmon va 2ta cola mavjud! 
-shop.sotish('non', 3) & 
-shop.qabul('cola', 4) & 
+MASALAN: const shop = new Shop(4, 5, 2);
+shop.qoldiq() return hozir 20:40da 4ta non, 5ta lagmon va 2ta cola mavjud!
+shop.sotish('non', 3) &
+shop.qabul('cola', 4) &
 shop.qoldiq() return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud!
 */
 
@@ -1197,7 +1216,7 @@ shop.qoldiq() return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud!
   }
 
   sotish(mahsulot, miqdor) {
-    if (this.mahsulotlar[mahsulot] >= miqdor) 
+    if (this.mahsulotlar[mahsulot] >= miqdor)
     {
       this.mahsulotlar[mahsulot] -= miqdor;
       console.log(`${time} da ${miqdor}ta ${mahsulot} sotildi.`)
@@ -1214,7 +1233,7 @@ shop.qoldiq() return hozir 20:50da 1ta non, 5ta lagmon va 6ta cola mavjud!
 
 }
 
-const shop = new Shop(4, 5, 2); 
+const shop = new Shop(4, 5, 2);
 shop.qoldiq();
 shop.sotish('non', 3);
 shop.qabul('cola', 4);
@@ -1222,8 +1241,8 @@ shop.qoldiq();
 
 */
 
-/*                  TASK B            
-Shunday function tuzing, u 1ta string parametrga ega bolsin, 
+/*                  TASK B
+Shunday function tuzing, u 1ta string parametrga ega bolsin,
 hamda o`sha stringda qatnashgan raqamlarni sonini bizga return qilsin.
 MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.
 */
@@ -1242,8 +1261,8 @@ MASALAN countDigits("ad2a54y79wet0sfgb9") 7ni return qiladi.
 
 // countLetters(mixWord);
 
-/*                  TASK A              
-Harf sifatida kiritilgan birinchi parametr, 
+/*                  TASK A
+Harf sifatida kiritilgan birinchi parametr,
 kiritilgan ikkinchi parametr tarkibida nechta ekanligini qaytaruvchi
 Funktsiya tuzing
 

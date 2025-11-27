@@ -6,14 +6,17 @@ import routerAdmin from "./router-admin"
 import morgan from 'morgan';
 import { MORGAN_FORMAT } from './libs/config';
 import cookieParser from "cookie-parser";
+import { Server as SocketIOServer } from "socket.io";
+import http from "http";
+
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
 import { T } from './libs/types/common';
 
 const MongoDBStore = ConnectMongoDB(session);
 const store = new MongoDBStore({
-uri: String(process.env.MONGO_URL),
-collection: "sessions",
+  uri: String(process.env.MONGO_URL),
+  collection: "sessions",
 });
 
 /** I Entrance */
@@ -21,13 +24,13 @@ const app = express();
 console.log("__dirname", __dirname);
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static("./uploads"));
-app.use(express.urlencoded({extended: true})); // Middleware DP -> Traditional API
+app.use(express.urlencoded({ extended: true })); // Middleware DP -> Traditional API
 app.use(express.json()); //Middleware DP -> RestAPI
 app.use(
   cors({
-  credentials: true,
-  origin: true,
-})
+    credentials: true,
+    origin: true,
+  })
 );
 app.use(cookieParser());
 app.use(morgan(MORGAN_FORMAT));
@@ -35,17 +38,17 @@ app.use(morgan(MORGAN_FORMAT));
 /** II Sessions */
 app.use(
   session({
-        secret: String(process.env.SESSION_SECRET),
-        cookie: {
-        maxAge: 1000 * 3600 * 3 // 3h
-  },
-  store: store,
-  resave: true, // 10:30 auth => 13:30 | 12:00 => 15:00
-  saveUninitialized: true   
-    })
+    secret: String(process.env.SESSION_SECRET),
+    cookie: {
+      maxAge: 1000 * 3600 * 3 // 3h
+    },
+    store: store,
+    resave: true, // 10:30 auth => 13:30 | 12:00 => 15:00
+    saveUninitialized: true
+  })
 );
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   const sessionInstance = req.session as T;
   res.locals.member = sessionInstance.member;
   next()
@@ -61,4 +64,23 @@ app.set("view engine", "ejs");
 app.use("/admin", routerAdmin);  // Middleware Design Pattern EJS  SSR
 app.use("/", router);  // Middleware Design Pattern: React  Frontend
 
-export default app; //module.exports
+const server = http.createServer(app);
+const io = new SocketIOServer(server, {
+  cors: {
+    origin: true,
+    credentials: true,
+  },
+});
+
+let summaryClient = 0;
+io.on("connection", (socket) => {
+  summaryClient++;
+  console.log(`Connection & total [${summaryClient}]`);
+
+  socket.on("disconnect", () => {
+    summaryClient--;
+    console.log(`Disconnection & total [${summaryClient}]`);
+  })
+});
+
+export default server; //module.exports
